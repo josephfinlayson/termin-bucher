@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.20.0",
+    "mailgun-js": "^0.7.11",
     "node-fetch": "^1.5.3"
   }
 }

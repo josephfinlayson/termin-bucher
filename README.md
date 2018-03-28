@@ -29,4 +29,16 @@ exports.emails = emails
 ### To run
 
 ```shell
-$ node index.js```
+$ node index.js
+```
+
+
+
+Feature set:
+- you can enter your email
+- you get notified when a termin is available
+
+Tech implementation:
+- Email gets put into a DB
+- All emails in DB with type - ACTIVE get spammed with appt through mailgun
+- Email contains a reset link to mark as disabled in DB

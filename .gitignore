@@ -31,3 +31,4 @@ node_modules
 
 .idea
 api-key.js
+.DS_Store

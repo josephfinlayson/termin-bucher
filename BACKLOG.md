@@ -1,4 +1,6 @@
 
 
-[]  Make links readable in an email
-[]  Include available dates in email
+[X]  Make links readable in an email
+[X]  Include available dates in email
+[]   Tech debt - make page objects
+[]   Create homepage

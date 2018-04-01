@@ -1,81 +1,78 @@
 <template>
   <div id="app">
-    <div class="banner">
-      <img
-        src="https://vuejs.org/images/logo.png"
-        width="100"
-        alt="vue"
-        class="logo"
-      />
-      <h1>Welcome to Vue.js</h1>
+    <MyHeader></MyHeader>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-4 ">
+          <logo/>
+        </h1>
+        <p class="lead">Get notified when then there is an Anmeldung appointment!</p>
+      </div>
     </div>
-    <div class="bottom">
-      To get started, edit <code>./src/components/App.vue</code> and save to reload.<br/>
-      <span class="fade">
-        Checkout <code>./README.md</code> for more usages.
-      </span>
+
+    <div class="container justify-content-center">
+      <div class="row">
+        <step title="1"
+              text="Enter your email to get notified if there is an anmeldung appt in the next 7 days in Berlin"></step>
+        <step title="2" text="Get notification via email that appointment is available"></step>
+        <step title="3" text="Click the link in your email, and grab that appointment!"></step>
+      </div>
     </div>
+
+    <div class="jumbotron">
+      <div class="container py-5 ">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-4"><h5>Why is this needed?</h5>
+            <p>The Berlin Bürgeramts are totally overloaded! Often there are no appointments available for many weeks at
+              central Bürgeramts, even though it's required to register within 3 weeks of moving apartment.
+            </p></div>
+          <div class="mb-4 mb-lg-0 col-12 col-lg-4"><h5>How does it work?</h5>
+            <p>We are continually checking the Berlin Burgeramt website, so when an appointment becomes available, we
+              can
+              let you know!</p></div>
+          <div class="mb-4 mb-lg-0 col-12 col-lg-4"><h5>What does it cost?</h5>
+            <p>It's totally free, we will also not sell or give your email to anyone else. You can stop recieving
+              notifications at any time</p></div>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="container py-5 ">
+      <div class="row justify-content-center">
+        <form>
+          <h5> Sign up </h5>
+          <hr/>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">I confirm I want to recieve notifications about
+              available appointments for Anmeldung in Berlin</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </section>
+
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'app'
-  }
+import MyHeader from "./header";
+import Logo from "./logo";
+import step from "./step";
+
+export default {
+  name: "app",
+  components: { Logo, MyHeader, step }
+};
 </script>
 
 <!-- CSS libraries -->
-<style src="normalize.css/normalize.css"></style>
-
-<!-- Global CSS -->
-<style>
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    font-size: 0.9em;
-    white-space: pre-wrap;
-    color: #2c3e50;
-  }
-
-  code::before, code::after {
-    content: '`';
-  }
-</style>
-
-<!-- Scoped component css -->
-<!-- It only affect current component -->
-<style scoped>
-  #app {
-    text-align: center;
-  }
-
-  #app h1 {
-    color: #2c3e50;
-    font-weight: 300;
-    margin: 0;
-  }
-
-  .banner {
-    height: 200px;
-    background-color: #f6f6f6;
-    padding: 50px 10px;
-  }
-
-  .bottom {
-    padding: 80px 10px;
-    font-size: 24px;
-    font-weight: 300;
-  }
-
-  .fade {
-    font-size: 14px;
-  }
-
-  .logo {
-    animation: spin 4s 1s infinite linear
-  }
-
-  @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
-  }
-</style>
+<!--<style src="normalize.css/normalize.css" />-->
+<style src="./base.css"/>

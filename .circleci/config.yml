@@ -18,10 +18,11 @@ jobs:
 
     steps:
       - checkout
-      - cd frontend
-      - yarn
-      - yarn run build
-      - cd ..
+      run: |
+        cd frontend
+        yarn
+        yarn run build
+        cd ..
 
       # Download and cache dependencies
       - restore_cache:

@@ -4,8 +4,13 @@
 - [X]  Include available dates in email
 - [X]  Tech debt - make page objects
 - [X]  Create homepage
-- [ ]  Deploy Frontend
+- [X]  Deploy Frontend
 - [ ]  Deploy Backend
+    - [ ] dockerize node application
+    - [ ] setup AWS ECS instance
+    - [ ] configure circle
 - [ ]  Confirm to user that email address is sent
 - [ ]  Connect backend to DB
-- [ ]  Connect backend to managed
+- [ ]  Connect backend to managed selenium instance
+- [ ]  Clean up circle CI deploy jobs
+    - using https://gist.github.com/mariuslazar93/beefd809071015cff3689648185c8fa0

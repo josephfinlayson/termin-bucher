@@ -2,10 +2,7 @@
 FROM mhart/alpine-node:9
 
 # Maintainer
-MAINTAINER Joseph Finlaysib <joseph.finlayson@gmail.com>
-
-# Need global yarn
-#RUN npm install yarn -g
+MAINTAINER Joseph Finlayson <joseph.finlayson@gmail.com>
 
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's nodejs dependencies:

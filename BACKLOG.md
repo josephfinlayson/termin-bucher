@@ -6,7 +6,7 @@
 - [X]  Create homepage
 - [X]  Deploy Frontend
 - [ ]  Deploy Backend
-    - [ ] dockerize node application
+    - [X] dockerize node application
     - [ ] setup AWS ECS instance
     - [ ] configure circle
 - [ ]  Confirm to user that email address is sent

@@ -17,7 +17,7 @@ ADD . /opt/app
 
 
 # Expose the node.js port to the Docker host.
-EXPOSE 3000
+EXPOSE 80
 
 # Start the app
 CMD [ "npm", "run", "start" ]

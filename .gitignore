@@ -31,7 +31,7 @@ node_modules
 
 .idea
 .DS_Store
-
+.env
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

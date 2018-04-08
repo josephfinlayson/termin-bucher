@@ -42,3 +42,14 @@ Tech implementation:
 - Email gets put into a DB
 - All emails in DB with type - ACTIVE get spammed with appt through mailgun
 - Email contains a reset link to mark as disabled in DB
+
+
+
+### To deploy
+
+`eb set_env mailgun_api_key=value`
+
+
+### logs
+
+`eb logs -g /aws/elasticbeanstalk/terminBucher-4pa9e-env/var/log/eb-docker/containers/eb-current-app/stdouterr.log --stream`

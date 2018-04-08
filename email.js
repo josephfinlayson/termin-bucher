@@ -6,7 +6,6 @@ export default emailLinks => {
     <Email>
       <Box>
         {emailLinks.map(({ link, text }) => {
-          console.log(link, text);
           return <A href={link}> {text} </A>;
         })}
       </Box>

@@ -37,7 +37,7 @@ jobs:
 
       - run: yarn test
   deploy:
-    working_directory: ~/app
+    working_directory: ~/repo
     docker:
     #   image shouldn't really matter here?
       - image: circleci/node:7.10
@@ -51,6 +51,10 @@ jobs:
             sudo apt-get -y -qq update
             sudo apt-get install python-pip python-dev build-essential
             sudo pip install awsebcli --upgrade
+
+      - run:
+          name: where am I?
+          command: ls -la
 
       - run:
           name: Deploying

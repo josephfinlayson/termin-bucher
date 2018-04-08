@@ -7,8 +7,11 @@
 - [X]  Deploy Frontend
 - [ ]  Deploy Backend
     - [X] dockerize node application
-    - [ ] setup AWS ECS instance
-    - [ ] configure circle
+    - [ ] ~~setup AWS ECS instance~~
+    - [X] Setup elastic beanstalk instance
+    - [ ] configure circle to auto deploy
+- [ ]  Register domain
+    - [X] Respond to copyright email
 - [ ]  Confirm to user that email address is sent
 - [ ]  Connect backend to DB
 - [ ]  Connect backend to managed selenium instance

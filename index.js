@@ -5,15 +5,12 @@
 
 const express = require('express')
 const app = express()
-// const register = require("babel-register")
-//
-// register()
 
 require("./appts");
 
 
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Hello Joe!'))
 
-
-app.listen(80, () => console.log('Example app listening on port 3000!'))
+const port = 80
+app.listen(port, () => console.log(`Example app listening on  ${port}!`))

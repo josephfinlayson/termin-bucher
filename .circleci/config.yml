@@ -58,7 +58,7 @@ jobs:
 
       - run:
           name: Deploying
-          command: eb deploy terminBucher-4pa9e-env
+          command: eb deploy master-termin-bucher
 
 workflows:
   version: 2

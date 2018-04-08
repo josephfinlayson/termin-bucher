@@ -13,7 +13,7 @@
 - [ ]  Register domain
     - [X] Respond to copyright email
 - [ ]  Confirm to user that email address is sent
-- [ ]  Connect backend to DB
+- [X]  Connect backend to DB
 - [ ]  WHen you enter an email, it ends up in the DB
 - [ ]  Connect backend to managed selenium instance
 - [ ]  Clean up circle CI deploy jobs

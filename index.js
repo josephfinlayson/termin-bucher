@@ -10,13 +10,15 @@ import knex from './data/index'
 require('dotenv').load();
 require("./appts");
 
+app.get('/health', (req, res) => res.send('Healthy!'))
 
-app.get('/', (req, res) => res.send('Hello Joe!'))
+app.get('/', (req, res) => res.send('Hello new !'))
 app.get('/db', (req, res) => {
-    knex.raw('select 1+1 as result').catch(err => {
-      console.log(err);
-      process.exit(1);
-    });
+    knex.raw('select 1+1 as result')
+      .then(r => res.send(r))
+      .catch((err) => {
+        res.send(err, result);
+      });
   }
 )
 

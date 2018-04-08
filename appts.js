@@ -2,12 +2,12 @@ import renderEmail from "./email";
 import apptAgreement from "./page-objects/appointment-agreement";
 import {getApptDetails} from "./formatter/get-appt-info";
 import _ from "lodash";
-import {api_key, domain, emails} from "./api-key";
+import {mailgun_api_key, domain, emails} from "./api-key";
 import cheerio from "cheerio";
 import fetch from "node-fetch";
 
 const mailgun = require("mailgun-js")({
-  apiKey: api_key,
+  apiKey: mailgun_api_key,
   domain: domain
 });
 

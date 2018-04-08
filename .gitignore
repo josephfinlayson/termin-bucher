@@ -30,7 +30,6 @@ build/Release
 node_modules
 
 .idea
-api-key.js
 .DS_Store
 
 # Elastic Beanstalk Files

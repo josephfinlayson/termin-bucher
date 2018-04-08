@@ -1,8 +1,8 @@
 import renderEmail from "./email";
 import apptAgreement from "./page-objects/appointment-agreement";
-import { getApptDetails } from "./formatter/get-appt-info";
+import {getApptDetails} from "./formatter/get-appt-info";
 import _ from "lodash";
-import { api_key, domain, emails } from "./api-key";
+import {api_key, domain, emails} from "./api-key";
 import cheerio from "cheerio";
 import fetch from "node-fetch";
 
@@ -34,10 +34,11 @@ function checkForAppts() {
           html: renderEmail(apptLinks.toArray())
         };
 
-        mailgun.messages().send(data, function(error, body) {
-          console.log(error, body);
+        mailgun.messages().send(data, function (error, body) {
+          if (error) {
+            console.error(error)
+          }
         });
-        console.log("sent");
       }
     })
     .catch(console.error);

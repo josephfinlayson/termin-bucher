@@ -12,7 +12,9 @@
     - [X] configure circle to auto deploy
 - [ ]  Register domain
     - [X] Respond to copyright email
+- [ ]  Creation of service that inserts email into DB
 - [ ]  Confirm to user that email address is sent
+- [ ]  MVP email
 - [X]  Connect backend to DB
 - [ ]  WHen you enter an email, it ends up in the DB
 - [ ]  Connect backend to managed selenium instance

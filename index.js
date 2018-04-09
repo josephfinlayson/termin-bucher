@@ -3,27 +3,47 @@
  */
 "use strict";
 
-const express = require('express')
-const app = express()
+import express from 'express'
 import knex from './data/index'
+import * as validator from "email-validator";
+import cors from 'cors'
 
-var validator = require("email-validator");
 
+import "./appts"
 
-require('dotenv').load();
-require("./appts");
+const app = express()
 
+app.use(cors())
+app.use(express.json())
+
+app.get('/api/hello', (req, res) => res.send('hello from cloudfront!'))
 app.get('/health', (req, res) => res.send('Healthy!'))
 
 app.get('/', (req, res) => res.send('Hello new !'))
 
 
 app.post('/email', (req, res) => {
+
+
     if (validator.validate(req.body.email)) {
       knex.table('users').insert({email: req.body.email})
         .then(r => res.send(r))
         .catch((err) => {
-          res.error(err, result);
+          res.send(err);
+        });
+    }
+  }
+)
+
+
+app.get('/email', (req, res) => {
+    if (validator.validate(req.body.email)) {
+      knex.table('users').delete({email: req.body.email})
+        .then(r => res.send(r))
+        .catch((err) => {
+          console.error(err)
+          // res.
+
         });
     }
   }

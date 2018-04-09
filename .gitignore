@@ -36,5 +36,6 @@ node_modules
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/config.yml
-
 !.elasticbeanstalk/*.global.yml
+
+dev.sqlite3

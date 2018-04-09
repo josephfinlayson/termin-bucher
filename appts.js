@@ -6,6 +6,8 @@ import {mailgun_api_key, domain, emails} from "./api-key";
 import cheerio from "cheerio";
 import fetch from "node-fetch";
 
+console.log(process.env)
+
 const mailgun = require("mailgun-js")({
   apiKey: mailgun_api_key,
   domain: domain

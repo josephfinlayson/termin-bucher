@@ -3,6 +3,8 @@
 
 const {RDS_PORT, RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME} = process.env
 
+console.log(RDS_PORT, RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME)
+
 module.exports = {
 
   development: {

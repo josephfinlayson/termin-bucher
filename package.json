@@ -20,6 +20,7 @@
     "babel-register": "^6.26.0",
     "cheerio": "^1.0.0-rc.2",
     "dotenv": "^5.0.1",
+    "email-validator": "^1.1.1",
     "express": "^4.16.3",
     "knex": "^0.14.4",
     "lodash": "^4.17.5",

@@ -1,12 +1,13 @@
-import renderEmail from "./email";
+import email from "./email";
 import apptAgreement from "./page-objects/appointment-agreement";
-import {getApptDetails} from "./formatter/get-appt-info";
+import { getApptDetails } from "./formatter/get-appt-info";
 import _ from "lodash";
-import {mailgun_api_key, domain, emails} from "./api-key";
+import { mailgun_api_key, domain, emails } from "./api-key";
 import cheerio from "cheerio";
 import fetch from "node-fetch";
+import { renderEmail } from "react-html-email";
 
-console.log(process.env)
+console.log(process.env);
 
 const mailgun = require("mailgun-js")({
   apiKey: mailgun_api_key,
@@ -30,15 +31,15 @@ function checkForAppts() {
         const apptLinks = appts.map(_.partialRight(getApptDetails, $));
 
         const data = {
-          from: "Excited User <me@samples.mailgun.org>",
+          from: "Terminator Berlin <no-reply@not-a-valid-domain.com>",
           to: emails,
           subject: "APPT FOUND",
-          html: renderEmail(apptLinks.toArray())
+          html: renderEmail(email({ emailLinks: apptLinks.toArray() }))
         };
 
-        mailgun.messages().send(data, function (error, body) {
+        mailgun.messages().send(data, function(error, body) {
           if (error) {
-            console.error(error)
+            console.error(error);
           }
         });
       }

@@ -7,7 +7,6 @@ import express from "express";
 import knex from "./data/index";
 import * as validator from "email-validator";
 import cors from "cors";
-
 import "./appts";
 
 const app = express();

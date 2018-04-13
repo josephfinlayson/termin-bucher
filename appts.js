@@ -38,11 +38,11 @@ function checkForAppts() {
     .then(html => {
       const $ = cheerio.load(html);
       const appts = getBookableAppointments($)
+      const apptLinks = appts.filter(isApptAvailableInTheNext7Days).map(_.partialRight(getApptDetails, $));
 
-      if (!appts.length) {
+      if (!apptLinks.length) {
         console.log("nothing found");
       } else {
-        const apptLinks = appts.filter(isApptAvailableInTheNext7Days).map(_.partialRight(getApptDetails, $));
 
         const data = {
           from: "Terminator Berlin <no-reply@not-a-valid-domain.com>",

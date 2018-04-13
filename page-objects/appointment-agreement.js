@@ -3,14 +3,14 @@ const alt =
 
 export default {
   appointmentTable: ".calendar-table .calendar-month-table table",
-  bookableAppt: "td.buchbar ",
-  dayOfAppt: block => block.find("span").text(),
+  bookableAppt: "td.buchbar",
+  dayOfAppt: block => block.find("span").text().trim(),
   monthOfAppt: block =>
     block
       .parents("tbody")
       .siblings("thead")
       .find(".month")
-      .text(),
+      .text().trim(),
   apptLink: block =>
     `https://service.berlin.de/terminvereinbarung/termin/` +
     block.find("a").prop("href"),

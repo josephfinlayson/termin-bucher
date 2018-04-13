@@ -1,10 +1,12 @@
 {
   "presets": [
+    "react",
+    "stage-0",
     ["env", {
       "targets": {
-        "node": "current"
+        "node": "current",
       }
-    }], "react"
+    }]
   ],
   "sourceMaps": "both"
 }

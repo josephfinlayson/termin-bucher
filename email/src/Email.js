@@ -3,7 +3,6 @@ import { renderEmail, A, Email, Box, Span } from "react-html-email";
 
 const defaultStyle = { fontFamily: "sans-serif", padding: "5px 0" };
 export default props => {
-  // return renderEmail(
   return (
     <Email style={defaultStyle}>
       <Box style={{ ...defaultStyle, padding: "20px" }}>
@@ -26,7 +25,6 @@ export default props => {
                 <A
                   style={{
                     color: "black",
-                    width: "100%"
                   }}
                   fontSize={20}
                   href={link}
@@ -65,7 +63,6 @@ export default props => {
       </Box>
     </Email>
   );
-  // );
 };
 Box.defaultProps = {
   cellPadding: 0,

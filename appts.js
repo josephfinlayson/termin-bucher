@@ -1,4 +1,4 @@
-import email from "./email";
+import email from "./email/src/Email";
 import apptAgreement from "./page-objects/appointment-agreement";
 import { getApptDetails } from "./formatter/get-appt-info";
 import _ from "lodash";
@@ -6,14 +6,30 @@ import { mailgun_api_key, domain, emails } from "./api-key";
 import cheerio from "cheerio";
 import fetch from "node-fetch";
 import { renderEmail } from "react-html-email";
+import mom from "moment"
+import {extendMoment} from 'moment-range'
 
-console.log(process.env);
+const moment = extendMoment(mom);
 
 const mailgun = require("mailgun-js")({
   apiKey: mailgun_api_key,
   domain: domain
 });
 
+export function isApptAvailableInTheNext7Days(dateString) {
+  const now = moment()
+  const sevenDaysFromNow = moment().add(7, 'day')
+  const range = moment.range(now, sevenDaysFromNow)
+
+  const appointmentDate = moment(dateString, "DD MMMM YYYY", "de");
+  return range.contains(appointmentDate)
+}
+
+export function getBookableAppointments($) {
+ return $(apptAgreement.appointmentTable).find(
+    apptAgreement.bookableAppt
+  );
+}
 function checkForAppts() {
   return fetch(apptAgreement.url)
     .then(response => {
@@ -21,19 +37,17 @@ function checkForAppts() {
     })
     .then(html => {
       const $ = cheerio.load(html);
-      const appts = $(apptAgreement.appointmentTable).find(
-        apptAgreement.bookableAppt
-      );
+      const appts = getBookableAppointments($)
 
       if (!appts.length) {
         console.log("nothing found");
       } else {
-        const apptLinks = appts.map(_.partialRight(getApptDetails, $));
+        const apptLinks = appts.filter(isApptAvailableInTheNext7Days).map(_.partialRight(getApptDetails, $));
 
         const data = {
           from: "Terminator Berlin <no-reply@not-a-valid-domain.com>",
           to: emails,
-          subject: "APPT FOUND",
+          subject: "An appointment to Anmeld has been found!",
           html: renderEmail(email({ emailLinks: apptLinks.toArray() }))
         };
 

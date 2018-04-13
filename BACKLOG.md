@@ -5,18 +5,26 @@
 - [X]  Tech debt - make page objects
 - [X]  Create homepage
 - [X]  Deploy Frontend
-- [ ]  Deploy Backend
+- [X]  Deploy Backend
     - [X] dockerize node application
     - [ ] ~~setup AWS ECS instance~~
     - [X] Setup elastic beanstalk instance
     - [X] configure circle to auto deploy
 - [ ]  Register domain
     - [X] Respond to copyright email
-- [ ]  Creation of service that inserts email into DB
-- [ ]  Confirm to user that email address is sent
-- [ ]  MVP email
+- [X]  Creation of service that inserts email into DB
+- [X]  Confirm to user that email address is sent
+- [X]  MVP email
 - [X]  Connect backend to DB
-- [ ]  WHen you enter an email, it ends up in the DB
+- [X]  When you enter an email, it ends up in the DB
+- [ ]  Only send email for 7 days after signup
+- [ ]  Correct height of UI sections
+- [ ]  Critical CSS
+- [ ]  Launch to friends
+- [ ]  Review Tech Debt
+- [ ]  Correct email warnings
+- [ ]  Reduce DB size to 5gb
+- [ ]  Externalise DB
 - [ ]  Connect backend to managed selenium instance
 - [ ]  Clean up circle CI deploy jobs
     - using https://gist.github.com/mariuslazar93/beefd809071015cff3689648185c8fa0

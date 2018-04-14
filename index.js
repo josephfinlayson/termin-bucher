@@ -52,9 +52,9 @@ app.get("/api/test", (req, res) => {
       .select("*")
       .then((r) =>res.send(r))
       .catch(err => {
-        console.error(err);
-        res.status(500).send({ err: "SOMETHING_BROKE" });
-      });
+        console.error("test", err);
+        res.status(500).send({ err: "SOMETHING_BROKE", stack: err });
+      });x``
 });
 
 const health = (req, res) => {

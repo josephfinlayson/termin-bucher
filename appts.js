@@ -16,12 +16,16 @@ const mailgun = require("mailgun-js")({
   domain: domain
 });
 
-export function isApptAvailableInTheNext7Days(dateString) {
+export function isApptAvailableInTheNext7Days(data) {
+  const dateString = data.text
   const now = moment()
-  const sevenDaysFromNow = moment().add(7, 'day')
+  const sevenDaysFromNow = moment().add(7, 'days')
   const range = moment.range(now, sevenDaysFromNow)
-
   const appointmentDate = moment(dateString, "DD MMMM YYYY", "de");
+  if (!appointmentDate.isValid()) {
+    console.error(dateString)
+    throw new Error(`INVALID_DATE: ${dateString}`)
+  }
   return range.contains(appointmentDate)
 }
 
@@ -38,7 +42,7 @@ function checkForAppts() {
     .then(html => {
       const $ = cheerio.load(html);
       const appts = getBookableAppointments($)
-      const apptLinks = appts.filter(isApptAvailableInTheNext7Days).map(_.partialRight(getApptDetails, $));
+      const apptLinks = appts.map(_.partialRight(getApptDetails, $)).toArray().filter((data) => isApptAvailableInTheNext7Days(data));
 
       if (!apptLinks.length) {
         console.log("nothing found");

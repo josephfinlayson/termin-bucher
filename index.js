@@ -54,7 +54,7 @@ app.get("/api/test", (req, res) => {
       .catch(err => {
         console.error("test", err);
         res.status(500).send({ err: "SOMETHING_BROKE", stack: err });
-      });x``
+      });
 });
 
 const health = (req, res) => {

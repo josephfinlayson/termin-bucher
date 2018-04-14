@@ -22,6 +22,7 @@
 - [ ]  Correct height of UI sections
 - [ ]  Critical CSS
 - [ ]  Launch to friends
+- [ ]  LINT 
 - [ ]  Review Tech Debt
 - [ ]  Correct email warnings
 - [ ]  Reduce DB size to 5gb

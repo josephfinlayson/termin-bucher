@@ -8,5 +8,7 @@ function getEnv() {
   return 'development'
 }
 
+console.log(getEnv(), process.env.NODE_ENV)
+
 export default knex(getEnv());
 

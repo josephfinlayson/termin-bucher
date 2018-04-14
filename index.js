@@ -16,13 +16,17 @@ app.use(express.json());
 
 app.post("/api/email", (req, res) => {
   if (validator.validate(req.body.email)) {
+    console.log("valid email", req.body.email)
     knex
       .table("users")
       .insert({ email: req.body.email })
       .then(r => res.send(r))
       .catch(err => {
-        res.send(err);
+        console.error(err)
+        res.status(500).send(err);
       });
+  } else {
+    res.status(400).send({ err: "INVALID_EMAIL" });
   }
 });
 
@@ -34,11 +38,23 @@ app.get("/api/email", (req, res) => {
       .then(res.send)
       .catch(err => {
         console.error(err);
-        res.status(500).send({err: "SOMETHING_BROKE"});
+        res.status(500).send({ err: "SOMETHING_BROKE" });
       });
   } else {
     res.status(400).send({ err: "INVALID_EMAIL" });
   }
+});
+
+
+app.get("/api/test", (req, res) => {
+    knex
+      .table("users")
+      .select("*")
+      .then((r) =>res.send(r))
+      .catch(err => {
+        console.error(err);
+        res.status(500).send({ err: "SOMETHING_BROKE" });
+      });
 });
 
 const health = (req, res) => {

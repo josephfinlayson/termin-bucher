@@ -1,21 +1,22 @@
 // Update with your config settings.
 
 
-const {RDS_PORT, RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME} = process.env
+const { RDS_PORT, RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME } = process.env;
 
-console.log(RDS_PORT, RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME)
+console.log(RDS_PORT, RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME);
 
 module.exports = {
 
   development: {
-    client: 'sqlite3',
+    client: "sqlite3",
     connection: {
-      filename: './dev.sqlite3'
-    }
+      filename: "./dev.sqlite3"
+    },
+    useNullAsDefault: true
   },
 
   production: {
-    client: 'postgresql',
+    client: "postgresql",
     connection: {
       host: RDS_HOSTNAME,
       port: RDS_PORT,
@@ -28,7 +29,7 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      tableName: "knex_migrations"
     }
   }
 

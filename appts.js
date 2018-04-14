@@ -41,8 +41,8 @@ function getEmailsRegisteredInLast7Days() {
         .subtract(7, "days")
         .format("YYYY-MM-DD"),
       moment().format("YYYY-MM-DD")
-    ])
-    .select();
+    ]).select('*')
+
 }
 
 function checkForAppts() {

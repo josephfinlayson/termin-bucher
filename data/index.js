@@ -10,5 +10,5 @@ function getEnv() {
 
 console.log(getEnv(), process.env.NODE_ENV)
 
-export default knex(getEnv());
+export default knex(config[getEnv()]);
 

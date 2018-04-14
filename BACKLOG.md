@@ -18,6 +18,7 @@
 - [X]  Connect backend to DB
 - [X]  When you enter an email, it ends up in the DB
 - [ ]  Only send email for 7 days after signup
+- [ ]  Rotate mailgun key
 - [ ]  Correct height of UI sections
 - [ ]  Critical CSS
 - [ ]  Launch to friends

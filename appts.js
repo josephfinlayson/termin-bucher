@@ -125,8 +125,8 @@ function sendEmail(user) {
 
 checkForAppts();
 (function loop() {
-  const rand = Math.round(Math.random() * (30000 - 500)) + 500;
-  console.log(rand);
+  const rand = Math.round((Math.random() * (3000000 - 15000)) + 15000);
+  console.log("next check scheduled for", Math.round((rand /1000)/60), "minutes");
   setTimeout(function() {
     checkForAppts();
     loop();

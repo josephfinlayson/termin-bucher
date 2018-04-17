@@ -55,9 +55,12 @@ function checkForAppts() {
   return fetch(apptAgreement.url)
     .then(response => {
       if (!response.ok) {
-        response.text().then((data => {
-          throw new Error({ err: "BAD RESPONSE", status: response.status, nessage: data });
-        }));
+        return response.text()
+          .then((data => {
+            throw new Error({ err: "BAD RESPONSE", status: response.status, nessage: data });
+          })).catch((err) => {
+            throw new Error({ err: "CANNOT PARSE RESPONSE", status: response.status, nessage: err });
+          });
       }
       return response.text();
     })
@@ -126,7 +129,7 @@ function sendEmail(user) {
 checkForAppts();
 (function loop() {
   const rand = Math.round((Math.random() * (3000000 - 15000)) + 15000);
-  console.log("next check scheduled for", Math.round((rand /1000)/60), "minutes");
+  console.log("next check scheduled for", Math.round((rand / 1000) / 60), "minutes");
   setTimeout(function() {
     checkForAppts();
     loop();

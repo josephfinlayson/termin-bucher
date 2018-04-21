@@ -24,7 +24,7 @@ export default props => {
               <Box width="100%">
                 <A
                   style={{
-                    color: "black",
+                    color: "black"
                   }}
                   fontSize={20}
                   href={link}
@@ -60,10 +60,17 @@ export default props => {
         <Box fontSize={20} style={defaultStyle} width={"100%"}>
           <Span fontSize={20}>Terminator Berlin</Span>
         </Box>
+
+        <Box>
+          <Span>If you want to unsubscribe, please click: </Span>{" "}
+          <A href={"%tag_unsubscribe_url%"}>here</A>
+        </Box>
       </Box>
     </Email>
   );
 };
+
+
 Box.defaultProps = {
   cellPadding: 0,
   cellSpacing: 0,

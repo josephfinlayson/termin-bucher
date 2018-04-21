@@ -110,7 +110,8 @@ function sendEmail(user) {
     from: "Terminator Berlin <no-reply@not-a-valid-domain.com>",
     to: user.email,
     subject: "An appointment to Anmeld has been found!",
-    html: renderEmail(email({ emailLinks: user.appointments }))
+    html: renderEmail(email({ emailLinks: user.appointments })),
+    "o:tag": "terminator-alpha"
   };
 
   mailgun.messages().send(data, function(error, body) {

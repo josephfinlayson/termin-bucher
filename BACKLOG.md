@@ -20,8 +20,10 @@
 - [X]  Only send email for 7 days after signup
 - [X]  Correct height of UI sections
 - [X]  Rotate mailgun key
+- [ ]  Launch to 3 people - get feedback
+- [ ]  Send confirmation email
+- [ ]  make sure everything works
 - [ ]  Critical CSS
-- [ ]  Launch to friends
 - [ ]  LINT 
 - [ ]  Review Tech Debt
 - [ ]  Correct email warnings

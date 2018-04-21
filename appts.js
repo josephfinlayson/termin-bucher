@@ -2,20 +2,15 @@ import email from "./email/src/Email";
 import apptAgreement from "./page-objects/appointment-agreement";
 import { getApptDetails } from "./formatter/get-appt-info";
 import _ from "lodash";
-import { mailgun_api_key, domain, emails } from "./api-key";
 import cheerio from "cheerio";
 import fetch from "node-fetch";
 import { renderEmail } from "react-html-email";
 import mom from "moment";
 import { extendMoment } from "moment-range";
 import knex from "./data/index";
+import mailgun from "./mailgun";
 
 const moment = extendMoment(mom);
-
-const mailgun = require("mailgun-js")({
-  apiKey: mailgun_api_key,
-  domain: domain
-});
 
 /**
  * checks if a given appoinment date is within 7 days of a user registration date
@@ -28,7 +23,11 @@ export function isApptAvailableInTheNext7Days(data, userRegisterDate) {
   const userCreationDate = moment(userRegisterDate);
   const sevenDaysFromNow = moment(userRegisterDate).add(7, "days");
   const range = moment.range(userCreationDate, sevenDaysFromNow);
-  const appointmentDate = moment(appointmentAvaliableDateString, "DD MMMM YYYY", "de");
+  const appointmentDate = moment(
+    appointmentAvaliableDateString,
+    "DD MMMM YYYY",
+    "de"
+  );
   if (!appointmentDate.isValid()) {
     console.error(appointmentAvaliableDateString);
     throw new Error(`INVALID_DATE: ${appointmentAvaliableDateString}`);
@@ -55,18 +54,22 @@ function checkForAppts() {
   return fetch(apptAgreement.url)
     .then(response => {
       if (!response.ok) {
-        return response.text()
-          .then((data => {
-            throw new Error({ err: "BAD RESPONSE", status: response.status, nessage: data });
-          })).catch((err) => {
-            throw new Error({ err: "CANNOT PARSE RESPONSE", status: response.status, nessage: err });
+        return response
+          .text()
+          .then(data => {
+            throw new Error({
+              err: "BAD RESPONSE",
+              status: response.status,
+              nessage: data
+            });
+          })
+          .catch(err => {
+            console.error(err);
           });
       }
       return response.text();
     })
     .then(html => {
-
-
       const $ = cheerio.load(html);
 
       const appts = getBookableAppointments($);
@@ -85,7 +88,7 @@ function checkForAppts() {
 
         .then(users => {
           const processedUsers = users
-          // filter out the users that won't have any appointments
+            // filter out the users that won't have any appointments
             .map(user => ({
               ...user,
               appointments: apptLinks.filter(apptLink =>
@@ -106,6 +109,8 @@ function checkForAppts() {
 }
 
 function sendEmail(user) {
+  console.log("sending email to " + user.email);
+
   const data = {
     from: "Terminator Berlin <no-reply@not-a-valid-domain.com>",
     to: user.email,
@@ -119,9 +124,9 @@ function sendEmail(user) {
       console.error(error);
     } else {
       console.debug(
-        `Mail successfully send to user ${user.email} for appointments ${
-          JSON.stringify(user.appointments)
-          }`
+        `Mail successfully send to user ${
+          user.email
+        } for appointments ${JSON.stringify(user.appointments)}`
       );
     }
   });
@@ -129,8 +134,12 @@ function sendEmail(user) {
 
 checkForAppts();
 (function loop() {
-  const rand = Math.round((Math.random() * (3000000 - 15000)) + 15000);
-  console.log("next check scheduled for", Math.round((rand / 1000) / 60), "minutes");
+  const rand = Math.round(Math.random() * (3000000 - 15000) + 15000);
+  console.log(
+    "next check scheduled for",
+    Math.round(rand / 1000 / 60),
+    "minutes"
+  );
   setTimeout(function() {
     checkForAppts();
     loop();

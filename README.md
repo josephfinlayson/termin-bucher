@@ -52,4 +52,4 @@ Tech implementation:
 
 ### logs
 
-`eb logs -g /aws/elasticbeanstalk/terminBucher-4pa9e-env/var/log/eb-docker/containers/eb-current-app/stdouterr.log --stream`
+`eb logs -g /aws/elasticbeanstalk/master-termin-bucher/var/log/eb-docker/containers/eb-current-app/stdouterr.log --stream`

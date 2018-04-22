@@ -28,8 +28,6 @@ app.post("/api/email", (req, res) => {
         console.error(err)
         res.status(500).send(err);
       });
-
-
   } else {
     res.status(400).send({ err: "INVALID_EMAIL" });
   }

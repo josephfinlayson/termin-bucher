@@ -1,0 +1,8 @@
+resources:
+  - conf.yaml
+
+namespace: 'terminator'
+
+commonLabels:
+  app: terminator-api
+    

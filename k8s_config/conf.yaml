@@ -18,3 +18,39 @@ spec:
           env:
             - name: "ENV"
               value: "PROD"
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-production
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+  name: terminator-static-ingress
+spec:
+  rules:
+    - host: terminator.dev.hobby-paas.cf
+      http:
+        paths:
+         - path: /api/*
+           backend:
+              serviceName: terminator-api
+              servicePort: http            
+  tls:
+    - hosts:
+      - terminator.dev.hobby-paas.cf
+      secretName: letsencrypt-production
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: terminator-static
+spec:
+  ports:
+    - name: http
+      port: 8002
+      targetPort: 3000
+  selector:
+    app: terminator-static
+  type: NodePort

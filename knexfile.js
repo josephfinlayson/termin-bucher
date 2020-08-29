@@ -1,6 +1,6 @@
 const Compiler = require('knex/lib/dialects/postgres/query/compiler')
 const types = require('pg').types
-import _ from 'lodash'
+const _ =  require('lodash')
 Compiler.prototype.forUpdate = function forUpdate() {
     console.warn('table lock is not supported by cockroachdb/postgres dialect');
     return '';

@@ -8,9 +8,9 @@
     "dev": "nodemon index --exec babel-node",
     "test": "jest",
     "lint": "eslint",
-    "db:migration:run": "babel-node node_modules/knex/bin/cli migrate:latest ",
-    "db:migration:rollback": "babel-node node_modules/knex/bin/cli migrate:rollback",
-    "db:seed:run": "babel-node node_modules/knex/bin/cli seed:run"
+    "db:migration:run": "node node_modules/knex/bin/cli migrate:latest ",
+    "db:migration:rollback": "node node_modules/knex/bin/cli migrate:rollback",
+    "db:seed:run": "node node_modules/knex/bin/cli seed:run"
   },
   "author": "",
   "license": "ISC",

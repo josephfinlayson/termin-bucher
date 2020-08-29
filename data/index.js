@@ -8,7 +8,7 @@ function getEnv() {
   return 'production'
 }
 
-const knexConfigured = knex(config[getEnv()])
+const knexConfigured = knex(config['development'])
 
 export default knexConfigured
 

@@ -38,5 +38,5 @@ const conf =
 
 module.exports = {
     development: conf,
-    production: _.merge(conf, { connection: { host: "cockroach-cockroachdb.default.svc" }  })
+    production: _.merge(_.cloneDeep(conf), { connection: { host: "cockroach-cockroachdb.default.svc" }  })
 };

@@ -10,9 +10,10 @@ spec:
         - name: terminator-api
           imagePullPolicy: Always
           image: registry.digitalocean.com/unmanaged-registry/terminator-api:latest
-          # command: ["node"]
-          # args:
-          #   - "index"
+          command: ["/bin/sh", "-c"]
+          args:
+            # This should be fixed by running migrations before we deploy the container
+            - "npm run db:migration:run && npm run start"
           ports:
             - containerPort: 3000
           env:

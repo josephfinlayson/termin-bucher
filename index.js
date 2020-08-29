@@ -10,7 +10,8 @@ import cors from "cors";
 import "./appts";
 import { renderEmail } from "react-html-email";
 import mailgun from './mailgun'
-
+import register from '@babel/register'
+register()
 const app = express();
 
 app.use(cors());

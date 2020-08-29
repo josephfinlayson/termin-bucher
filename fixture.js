@@ -29,7 +29,7 @@ export const appointmentPage = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Tra
   <!-- "property" validiert nicht, nimm "name" -->
   <meta name="og:image" content="http://service.berlin.de/i9f/images/facebook_default_icon_land.png" />
   <meta name="og:image:secure_url" content="https://service.berlin.de/i9f/images/facebook_default_icon_land.png" />
-  <script type="text/javascript" src="//service.berlin.de/i9f/v4/js/bo-head.js?ts=1523486034"></script>
+  <script type="text/javascript" src="//service.berlin.de/i9f/v4/js/bo-head?ts=1523486034"></script>
 
 
   <!--
@@ -746,7 +746,7 @@ export const appointmentPage = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Tra
   </div>
 </div>
 
-<script type="text/javascript" src="//service.berlin.de/i9f/v4/js/bo-foot.js?ts=1523486034"></script>
+<script type="text/javascript" src="//service.berlin.de/i9f/v4/js/bo-foot?ts=1523486034"></script>
 
 
 <!-- Zaehlpixel -->
@@ -767,7 +767,7 @@ export const appointmentPage = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Tra
 
   <!-- szm pixel mobile variante -->
   <!-- SZM VERSION="2.0" -->
-  <script type="text/javascript" src="https://script.ioam.de/iam.js"></script>
+  <script type="text/javascript" src="https://script.ioam.de/iam"></script>
   <script type="text/javascript">
     var iam_data = {"mg":"yes","cp":DartIvwKategorie,"oc":DartIvwKategorie,"st":"mobberde","sv":(location.pathname=="/"?"ke":"mo"),"co":"mobile "+location.hostname}
     iom.c(iam_data,1);
@@ -791,7 +791,7 @@ export const appointmentPage = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Tra
   _paq.push(["setTrackerUrl", u+"piwik.php"]);
   _paq.push(["setSiteId", document.location.hostname.match(/service\.berlin\.de$/) ? "6" : "1"]);
   var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-  g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  g.defer=true; g.async=true; g.src=u+"piwik"; s.parentNode.insertBefore(g,s);
 })();
 </script>
 <!-- End Piwik Code -->

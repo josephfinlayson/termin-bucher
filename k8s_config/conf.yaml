@@ -12,12 +12,18 @@ spec:
           image: registry.digitalocean.com/unmanaged-registry/terminator-api:latest
           # command: ["node"]
           # args:
-          #   - "index.js"
+          #   - "index"
           ports:
             - containerPort: 80
           env:
             - name: "ENV"
               value: "PROD"
+            - name: mailgun_api_key
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: mailgun_api_key
+
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress

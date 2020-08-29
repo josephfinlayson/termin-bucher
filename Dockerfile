@@ -2,8 +2,8 @@
 FROM mhart/alpine-node:12
 
 # Maintainer
-MAINTAINER Joseph Finlayson <joseph.finlayson@gmail.com>
-
+LABEL MAINTAINER="Joseph Finlayson <joseph.finlayson@gmail.com>"
+ 
 # use changes to packageon to force Docker not to use the cache
 # when we change our application's nodejs dependencies:
 ADD package.json /tmp/package.json

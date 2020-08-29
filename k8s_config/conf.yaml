@@ -20,7 +20,7 @@ spec:
             - name: "ENV"
               value: "PROD"
             - name: "NODE_ENV"
-              value: "PROD"
+              value: "production"
             - name: mailgun_api_key
               valueFrom:
                 secretKeyRef:

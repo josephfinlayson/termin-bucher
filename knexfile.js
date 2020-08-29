@@ -1,6 +1,6 @@
 const Compiler = require('knex/lib/dialects/postgres/query/compiler')
 const types = require('pg').types
-
+import _ from 'lodash'
 Compiler.prototype.forUpdate = function forUpdate() {
     console.warn('table lock is not supported by cockroachdb/postgres dialect');
     return '';
@@ -36,7 +36,7 @@ const conf =
     }
 }
 
-export default {
+export default  {
     development: conf,
-    production: { ...conf, ...{ connection: { host: "cockroach-cockroachdb.default.svc" } }}
+    production: _.merge(conf, { connection: { host: "cockroach-cockroachdb.default.svc" }  })
 };

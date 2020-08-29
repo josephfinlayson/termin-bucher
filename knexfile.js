@@ -38,5 +38,5 @@ const conf =
 
 export default {
     development: conf,
-    production: { ...conf, { connection: { host: "cockroach-cockroachdb.default.svc" } }}
+    production: { ...conf, ...{ connection: { host: "cockroach-cockroachdb.default.svc" } }}
 };

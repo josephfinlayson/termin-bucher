@@ -1,34 +1,37 @@
-// Update with your config settings.
+const Compiler = require('knex/lib/dialects/postgres/query/compiler')
+const types = require('pg').types
 
+Compiler.prototype.forUpdate = function forUpdate () {
+  console.warn('table lock is not supported by cockroachdb/postgres dialect');
+  return '';
+};
 
-const { RDS_PORT, RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME } = process.env;
+/**
+ * Required because postgres returns int as string and 
+ * knex checks for isLocked are evaluating to true all the time
+ */
+types.setTypeParser(20, function(val) {
+  return parseInt(val)
+})
 
-module.exports = {
+export default {
+    development: {
+        client: "pg",
+        version: '9.5',
+        migrations: {
+            tableName: "knex_migrations",
+            disableTransactions: true
+        },
+        connection: {
+            host: '127.0.0.1',
+            port: '26257',
+            user: 'root',
+            database: 'terminator',
+            pool: {
+                min: 1,
+                max: 2
+            },
 
-  development: {
-    client: "sqlite3",
-    connection: {
-      filename: "./dev.sqlite3"
-    },
-    useNullAsDefault: true
-  },
-
-  production: {
-    client: "postgresql",
-    connection: {
-      host: RDS_HOSTNAME,
-      port: RDS_PORT,
-      user: RDS_USERNAME,
-      password: RDS_PASSWORD,
-      database: RDS_DB_NAME
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: "knex_migrations"
+        }
     }
-  }
-
 };

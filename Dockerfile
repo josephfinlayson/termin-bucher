@@ -1,10 +1,10 @@
 # Pull base image from stock node image.
-FROM mhart/alpine-node:9
+FROM mhart/alpine-node:12
 
 # Maintainer
 MAINTAINER Joseph Finlayson <joseph.finlayson@gmail.com>
 
-# use changes to package.json to force Docker not to use the cache
+# use changes to packageon to force Docker not to use the cache
 # when we change our application's nodejs dependencies:
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install

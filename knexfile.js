@@ -1,37 +1,42 @@
 const Compiler = require('knex/lib/dialects/postgres/query/compiler')
 const types = require('pg').types
 
-Compiler.prototype.forUpdate = function forUpdate () {
-  console.warn('table lock is not supported by cockroachdb/postgres dialect');
-  return '';
+Compiler.prototype.forUpdate = function forUpdate() {
+    console.warn('table lock is not supported by cockroachdb/postgres dialect');
+    return '';
 };
 
 /**
  * Required because postgres returns int as string and 
  * knex checks for isLocked are evaluating to true all the time
  */
-types.setTypeParser(20, function(val) {
-  return parseInt(val)
+types.setTypeParser(20, function (val) {
+    return parseInt(val)
 })
 
-export default {
-    development: {
-        client: "pg",
-        version: '9.5',
-        migrations: {
-            tableName: "knex_migrations",
-            disableTransactions: true
-        },
-        connection: {
-            host: '127.0.0.1',
-            port: '26257',
-            user: 'root',
-            database: 'terminator',
-            pool: {
-                min: 1,
-                max: 2
-            },
 
-        }
+const conf =
+{
+    client: "pg",
+    version: '9.5',
+    migrations: {
+        tableName: "knex_migrations",
+        disableTransactions: true
+    },
+    connection: {
+        host: '127.0.0.1',
+        port: '26257',
+        user: 'root',
+        database: 'terminator',
+        pool: {
+            min: 1,
+            max: 2
+        },
+
     }
+}
+
+export default {
+    development: conf,
+    production: { ...conf, { connection: { host: "cockroach-cockroachdb.default.svc" } }}
 };

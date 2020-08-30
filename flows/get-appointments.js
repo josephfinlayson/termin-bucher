@@ -4,19 +4,17 @@ import _ from 'lodash'
 import cheerio from 'cheerio'
 import mom from 'moment'
 import { extendMoment } from 'moment-range'
-import puppeteer from 'puppeteer'
 
 const moment = extendMoment(mom)
 
 /**
  * checks if a given appoinment date is within 7 days of a user registration date
- * @param data
+ * @param apptData
  * @param userRegisterDate
  * @returns {*}
  */
-export function isApptAvailableInTheNext7Days (data, userRegisterDate) {
-  console.log(data)
-  const appointmentAvaliableDateString = `${data.dayOfAppt} ${data.monthOfAppt}`
+export function isApptAvailableInTheNext7Days (apptData, userRegisterDate) {
+  const appointmentAvaliableDateString = `${apptData.dayOfAppt} ${apptData.monthOfAppt}`
   const userCreationDate = moment(userRegisterDate)
   const sevenDaysFromNow = moment(userRegisterDate).add(7, 'days')
   const range = moment.range(userCreationDate, sevenDaysFromNow)
@@ -39,8 +37,6 @@ export function getBookableAppointments ($) {
 export default async function availableAppts (page) {
   let $
   try {
-    const browser = await puppeteer.launch({ headless: false })
-    page = await browser.newPage()
     await page.goto(apptAgreement.url, { waitUntil: 'networkidle2' })
     const html = await page.evaluate(() => document.body.innerHTML)
 

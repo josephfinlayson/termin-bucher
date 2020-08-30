@@ -24,12 +24,11 @@ app.post('/api/user', (req, res) => {
     knex
       .table('users')
       .insert({ first_name, last_name, email, phone_number })
-      .then(r => res.send(r))
       .then(() => sendEmail(req.body.email, first_name))
       .catch(err => {
         console.error(err)
         res.status(500).send(err)
-      })
+      }).then(() => res.status(200).send({ status: 'OK' }))
   } else {
     res.status(400).send({ err: 'INVALID_EMAIL' })
   }

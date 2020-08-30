@@ -1,12 +1,16 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('users', function (table) {
-    table.increments();
-    table.string('email');
-    table.timestamps(true, true);
-  })
+    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()')).notNull()
+    table.string('email').notNull()
+    table.string('first_name').notNull()
+    table.string('last_name').notNull()
+    table.string('phone_number').notNull()
+    table.boolean('appointment_found').notNull().defaultTo('false')
 
-};
+    table.timestamp('created_at', { useTz: false }).defaultTo(knex.fn.now()).notNull()
+  })
+}
 
 exports.down = function (knex, Promise) {
   return knex.schema.dropTable('users')
-};
+}

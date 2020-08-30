@@ -5,19 +5,22 @@ import bookAppts from './book-appointments'
 import notify from './notify-users'
 
 async function checkForAppts () {
-  const browser = await puppeteer.launch({ headless: false })
-  const page = await browser.newPage()
-  const appts = getAppointments(page)
-  if (appts.length === 0) {
-    console.log(' No appointments')
-    return
-  }
-
   const users = await getUsers()
   if (users.length === 0) {
     console.log(' No users')
     return
   }
+
+  const browser = await puppeteer.launch({ headless: false })
+  const page = await browser.newPage()
+  const appts = await getAppointments(page)
+
+  if (appts.length === 0) {
+    console.log(' No appointments')
+    return
+  }
+
+  console.log(appts)
   const usersWithScreenShots = await users.map(async function (user, i) {
     return { screenshot: await bookAppts(page, user, appts[i].link), user }
   }).filter(userWithScreenshot => !!userWithScreenshot.screenshot)
@@ -25,7 +28,8 @@ async function checkForAppts () {
   usersWithScreenShots.forEach(user => notify(user.user, user.screenshot))
 }
 
-checkForAppts().then(e => console.log(e));
+checkForAppts();
+
 (function loop () {
   const rand = Math.round(Math.random() * (3000000 - 15000) + 15000)
   console.log(

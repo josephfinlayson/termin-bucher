@@ -7,11 +7,11 @@ import express from 'express'
 import knex from './data/index'
 import * as validator from 'email-validator'
 import cors from 'cors'
-import './appts'
-import { renderEmail } from 'react-html-email'
 import mailgun from './mailgun'
 import register from '@babel/register'
+import './flows/orchestrate'
 register()
+
 const app = express()
 
 app.use(cors())

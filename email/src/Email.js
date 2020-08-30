@@ -1,13 +1,13 @@
-import React from "react";
-import { renderEmail, A, Email, Box, Span } from "react-html-email";
+import React from 'react';
+import { renderEmail, A, Email, Box, Span } from 'react-html-email';
 
-const defaultStyle = { fontFamily: "sans-serif", padding: "5px 0" };
+const defaultStyle = { fontFamily: 'sans-serif', padding: '5px 0' }
 export default props => {
   return (
-    <Email style={defaultStyle}>
-      <Box style={{ ...defaultStyle, padding: "20px" }}>
+        <Email style={defaultStyle}>
+  <Box style={{ ...defaultStyle, padding: '20px' }}>
         <Box>
-          <Box style={{ ...defaultStyle, padding: " 10px 0" }}>Hiya!</Box>
+          <Box style={{ ...defaultStyle, padding: ' 10px 0' }}>Hiya!</Box>
           <Box>
             You recently signed up to Terminator, We've found you some
             appointments in the next 7 days. They are:
@@ -16,15 +16,15 @@ export default props => {
         <Box
           style={{
             ...defaultStyle,
-            ...{ padding: "10px" }
+            ...{ padding: '10px' }
           }}
         >
           {props.emailLinks.map(({ link, text }) => {
             return (
-              <Box width="100%">
+              <Box width='100%'>
                 <A
                   style={{
-                    color: "black"
+                    color: 'black'
                   }}
                   fontSize={20}
                   href={link}
@@ -32,7 +32,7 @@ export default props => {
                   - {text}
                 </A>
               </Box>
-            );
+            )
           })}
         </Box>
         <Box>
@@ -43,10 +43,10 @@ export default props => {
         <Box>
           <Box
             style={{
-              padding: "10px 10px 10px 0",
+              padding: '10px 10px 10px 0',
               fontSize: 15
             }}
-            width={"100%"}
+            width="100%"
           >
             <Span fontSize={20}>Captcha help</Span>
           </Box>
@@ -54,32 +54,31 @@ export default props => {
           redirected back to the homepage. If you come back to your email and
           click on the link above, you'll be able to book your appointment!
         </Box>
-        <Box style={defaultStyle} width={"100%"}>
+        <Box style={defaultStyle} width="100%">
           Cheers, and good luck in your new home,
         </Box>
-        <Box fontSize={20} style={defaultStyle} width={"100%"}>
+        <Box fontSize={20} style={defaultStyle} width="100%">
           <Span fontSize={20}>Terminator Berlin</Span>
         </Box>
 
         <Box>
-          <Span>If you want to unsubscribe, please click: </Span>{" "}
-          <A href={"%tag_unsubscribe_url%"}>here</A>
+          <Span>If you want to unsubscribe, please click: </Span>{' '}
+          <A href="%tag_unsubscribe_url%">here</A>
         </Box>
       </Box>
-    </Email>
-  );
+</Email>
+  )
 };
-
 
 Box.defaultProps = {
   cellPadding: 0,
   cellSpacing: 0,
-  border: "0",
-  align: "left",
-  valign: "top",
+  border: '0',
+  align: 'left',
+  valign: 'top',
   bgcolor: undefined,
   width: undefined,
   height: undefined,
   style: undefined,
   children: undefined
-};
+}

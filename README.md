@@ -46,6 +46,6 @@ Tech implementation:
 
 ### To deploy
 
-Deploy the kubernetes yamls using kustomise
+Deploy the kubernetes yamls using kustomise. Requires `ingress-nginx` to be deployed on the cluster.
 
 `kubectl apply -k k8s_config`

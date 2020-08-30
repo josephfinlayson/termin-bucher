@@ -15,6 +15,7 @@ export default async function bookApptAndScreenshot (page, user, firstApptLink) 
     await delay(1000)
     return await page.screenshot({ fullPage: true })
   } catch (e) {
+    console.log(e)
     console.error('Could not book appointment')
   }
 }

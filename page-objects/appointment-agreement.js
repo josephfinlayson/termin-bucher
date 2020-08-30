@@ -12,6 +12,6 @@ export default {
   apptLink: block =>
     'https://service.berlin.de' +
     block.find('a').prop('href'),
-  url: 'https://service.berlin.de/terminvereinbarung/termin/restart/?providerList=327286&requestList=120686&source=dldb'
+  url: 'https://service.berlin.de/terminvereinbarung/termin/restart/?providerList=327286,122297&requestList=120686&source=dldb'
 
 }

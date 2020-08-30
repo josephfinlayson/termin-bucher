@@ -3,6 +3,7 @@ import getUsers from './get-users'
 import getAppointments from './get-appointments'
 import bookAppts from './book-appointments'
 import notify from './notify-users'
+import markUserAsFound from './mark-user-as-found'
 
 async function checkForAppts () {
   const users = await getUsers()
@@ -25,7 +26,10 @@ async function checkForAppts () {
     return { screenshot: await bookAppts(page, user, appts[i].link), user }
   }).filter(userWithScreenshot => !!userWithScreenshot.screenshot)
 
+  usersWithScreenShots.forEach(user => markUserAsFound(user.user))
   usersWithScreenShots.forEach(user => notify(user.user, user.screenshot))
+
+  browser.close()
 }
 
 checkForAppts();

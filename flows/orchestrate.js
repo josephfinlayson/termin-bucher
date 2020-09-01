@@ -21,10 +21,14 @@ async function checkForAppts () {
     return
   }
 
-  console.log(appts)
-  const usersWithScreenShots = await users.map(async function (user, i) {
-    return { screenshot: await bookAppts(page, user, appts[i].link), user }
-  }).filter(userWithScreenshot => !!userWithScreenshot.screenshot)
+  const usersWithScreenShots = []
+  for (let index = 0; index < users.length; index++) {
+    const user = users[index]
+    const screenshot = await bookAppts(page, user, appts[index].link)
+    if (screenshot) {
+      usersWithScreenShots.push({ user, screenshot })
+    }
+  }
 
   usersWithScreenShots.forEach(user => markUserAsFound(user.user))
   usersWithScreenShots.forEach(user => notify(user.user, user.screenshot))
@@ -43,6 +47,6 @@ checkForAppts().then(console.log).catch(console.error);
   )
   setTimeout(async function () {
     checkForAppts().then(console.log).catch(console.error)
-        loop()
+    loop()
   }, rand)
 })()

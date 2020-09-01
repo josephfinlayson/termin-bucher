@@ -9,7 +9,12 @@ export default async function bookApptAndScreenshot (page, user, firstApptLink) 
     await delay(3000)
     await page.type('#familyName', `${user.first_name} ${user.last_name}`)
     await page.type('#email', user.email)
-    await page.type('#telephone', user.phone_number)
+    try {
+      await page.type('#telephone', user.phone_number)
+    } catch (e) {
+      console.error(e)
+    }
+
     await page.click('#agbgelesen')
     await page.click('#register_submit')
     await delay(3000)

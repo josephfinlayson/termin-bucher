@@ -32,7 +32,7 @@ async function checkForAppts () {
   browser.close()
 }
 
-checkForAppts();
+checkForAppts().then(console.log).catch(console.error);
 
 (function loop () {
   const rand = Math.round(Math.random() * (300000 - 15000) + 1500)
@@ -41,8 +41,8 @@ checkForAppts();
     Math.round(rand / 1000 / 60),
     'minutes'
   )
-  setTimeout(function () {
-    checkForAppts()
-    loop()
+  setTimeout(async function () {
+    checkForAppts().then(console.log).catch(console.error)
+        loop()
   }, rand)
 })()

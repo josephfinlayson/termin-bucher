@@ -39,7 +39,7 @@ export default async function availableAppts (page) {
   try {
     await page.goto(apptAgreement.url, { waitUntil: 'networkidle2' })
     const html = await page.evaluate(() => document.body.innerHTML)
-
+    
     $ = cheerio.load(html)
   } catch (e) {
     console.error(JSON.stringify(e))

@@ -6,27 +6,20 @@ export default props => {
   return (
     <Email style={defaultStyle}>
       <Box style={{ ...defaultStyle, padding: '20px' }}>
-    <Box>
+        <Box>
           <Box style={{ ...defaultStyle, padding: ' 10px 0' }}>Hiya!</Box>
           <Box>
-            You recently signed up to Terminator, We've found you some
-            appointments in the next 7 days. They are:
+            You recently signed up to Terminator, We've found you an appointment. Check the attachment below for the details. If the time doesn't work for you, please cancel the appointment and resubmit your details
           </Box>
         </Box>
-    <Box
+        <Box
           style={{
             ...defaultStyle,
             ...{ padding: '10px' }
           }}
-        >
+        />
 
-        </Box>
-    <Box>
-          However, you need to act quickly! They will only be available for a
-          short time. If none are available you'll just see a screen where no
-          appointments seem to be available.
-        </Box>
-    <Box>
+        <Box>
           <Box
             style={{
               padding: '10px 10px 10px 0',
@@ -34,25 +27,22 @@ export default props => {
             }}
             width='100%'
           >
-            <Span fontSize={20}>Captcha help</Span>
-          </Box>
-          You may be asked to solve a captcha. If that occurs, you will be
-          redirected back to the homepage. If you come back to your email and
-          click on the link above, you'll be able to book your appointment!
-        </Box>
-    <Box style={defaultStyle} width='100%'>
+            <Box style={defaultStyle} width='100%'>
           Cheers, and good luck in your new home,
-        </Box>
-    <Box fontSize={20} style={defaultStyle} width='100%'>
-          <Span fontSize={20}>Terminator Berlin</Span>
-        </Box>
+            </Box>
+            <Box fontSize={20} style={defaultStyle} width='100%'>
+              <Span fontSize={20}>Terminator Berlin</Span>
+            </Box>
 
-    <Box>
-          <Span>If you want to unsubscribe, please click: </Span>{' '}
-          <A href='%tag_unsubscribe_url%'>here</A>
+            <Box>
+              <Span>If you want to unsubscribe, please click: </Span>{' '}
+              <A href='%tag_unsubscribe_url%'>here</A>
+            </Box>
+          </Box>
         </Box>
-  </Box>
-                    </Email>
+      </Box>
+
+    </Email>
   )
 }
 

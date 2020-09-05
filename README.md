@@ -49,3 +49,10 @@ Tech implementation:
 Deploy the kubernetes yamls using kustomise. Requires `ingress-nginx` to be deployed on the cluster.
 
 `kubectl apply -k k8s_config`
+
+
+---
+
+To grab the amt locations, run
+
+`curl https://service.berlin.de/export/standorte/json/ | jq '[.data[] | {name: .name, standort_id: .id, authority_id: .authority.id, authority_name: .authority.name, services: ( .services | map(.service))} | select(.services[] == "120686") | {location_name: .name, authority_name, authority_id, location_id: .standort_id}] | .' > amts2.json`

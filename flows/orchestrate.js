@@ -37,7 +37,8 @@ async function checkForAppts () {
   browser.close()
 }
 
-checkForAppts().then(console.log).catch(console.error);
+if (process.env['ENV'] === 'production')
+ checkForAppts().then(console.log).catch(console.error);
 
 (function loop () {
   const rand = Math.round(Math.random() * (300000 - 15000) + 4500)

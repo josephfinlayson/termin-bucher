@@ -1,0 +1,500 @@
+[
+  {
+    "location_name": "Bürgeramt I in Köpenick",
+    "authority_name": "Bezirksamt Treptow-Köpenick",
+    "authority_id": "12678",
+    "location_id": "122208"
+  },
+  {
+    "location_name": "Bürgeramt Halemweg (Außenstelle)",
+    "authority_name": "Bezirksamt Charlottenburg - Wilmersdorf",
+    "authority_id": "12667",
+    "location_id": "122210"
+  },
+  {
+    "location_name": "Bürgeramt Heerstraße",
+    "authority_name": "Bezirksamt Charlottenburg - Wilmersdorf",
+    "authority_id": "12667",
+    "location_id": "122217"
+  },
+  {
+    "location_name": "Bürgeramt Hohenzollerndamm",
+    "authority_name": "Bezirksamt Charlottenburg - Wilmersdorf",
+    "authority_id": "12667",
+    "location_id": "122219"
+  },
+  {
+    "location_name": "Bürgeramt II in Schöneweide",
+    "authority_name": "Bezirksamt Treptow-Köpenick",
+    "authority_id": "12678",
+    "location_id": "122226"
+  },
+  {
+    "location_name": "Bürgeramt Wilmersdorfer Straße",
+    "authority_name": "Bezirksamt Charlottenburg - Wilmersdorf",
+    "authority_id": "12667",
+    "location_id": "122227"
+  },
+  {
+    "location_name": "Bürgeramt 1 (Kreuzberg), Yorckstraße",
+    "authority_name": "Bezirksamt Friedrichshain - Kreuzberg",
+    "authority_id": "12668",
+    "location_id": "122231"
+  },
+  {
+    "location_name": "Bürgeramt 3 (Friedrichshain), Frankfurter Allee",
+    "authority_name": "Bezirksamt Friedrichshain - Kreuzberg",
+    "authority_id": "12668",
+    "location_id": "122243"
+  },
+  {
+    "location_name": "Bürgeramt Lichtenrade",
+    "authority_name": "Bezirksamt Tempelhof-Schöneberg",
+    "authority_id": "12677",
+    "location_id": "122246"
+  },
+  {
+    "location_name": "Bürgeramt Schöneberg",
+    "authority_name": "Bezirksamt Tempelhof-Schöneberg",
+    "authority_id": "12677",
+    "location_id": "122251"
+  },
+  {
+    "location_name": "Bürgeramt 1 (Neu- Hohenschönhausen) ",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "122252"
+  },
+  {
+    "location_name": "Bürgeramt 4 (Alt- Hohenschönhausen)",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "122254"
+  },
+  {
+    "location_name": "Bürgeramt Tempelhof",
+    "authority_name": "Bezirksamt Tempelhof-Schöneberg",
+    "authority_id": "12677",
+    "location_id": "122257"
+  },
+  {
+    "location_name": "Bürgeramt 2 (Lichtenberg)",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "122260"
+  },
+  {
+    "location_name": "Bürgeramt 3 (Friedrichsfelde) Tierparkcenter",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "122262"
+  },
+  {
+    "location_name": "Bürgeramt Zehlendorf",
+    "authority_name": "Bezirksamt Steglitz-Zehlendorf",
+    "authority_id": "12676",
+    "location_id": "122267"
+  },
+  {
+    "location_name": "Bürgeramt Biesdorf - Center",
+    "authority_name": "Bezirksamt Marzahn - Hellersdorf",
+    "authority_id": "12670",
+    "location_id": "122271"
+  },
+  {
+    "location_name": "Bürgeramt Helle Mitte",
+    "authority_name": "Bezirksamt Marzahn - Hellersdorf",
+    "authority_id": "12670",
+    "location_id": "122273"
+  },
+  {
+    "location_name": "Bürgeramt Steglitz",
+    "authority_name": "Bezirksamt Steglitz-Zehlendorf",
+    "authority_id": "12676",
+    "location_id": "122274"
+  },
+  {
+    "location_name": "Bürgeramt Lankwitz",
+    "authority_name": "Bezirksamt Steglitz-Zehlendorf",
+    "authority_id": "12676",
+    "location_id": "122276"
+  },
+  {
+    "location_name": "Bürgeramt Marzahner Promenade",
+    "authority_name": "Bezirksamt Marzahn - Hellersdorf",
+    "authority_id": "12670",
+    "location_id": "122277"
+  },
+  {
+    "location_name": "Bürgerbüro Wasserstadt",
+    "authority_name": "Bezirksamt Spandau",
+    "authority_id": "12675",
+    "location_id": "122279"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Mitte",
+    "authority_name": "Bezirksamt Mitte",
+    "authority_id": "12671",
+    "location_id": "122280"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Spandau",
+    "authority_name": "Bezirksamt Spandau",
+    "authority_id": "12675",
+    "location_id": "122281"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Tiergarten",
+    "authority_name": "Bezirksamt Mitte",
+    "authority_id": "12671",
+    "location_id": "122282"
+  },
+  {
+    "location_name": "Bürgeramt Wedding ",
+    "authority_name": "Bezirksamt Mitte",
+    "authority_id": "12671",
+    "location_id": "122284"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Neukölln",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "122285"
+  },
+  {
+    "location_name": "Bürgeramt Sonnenallee",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "122286"
+  },
+  {
+    "location_name": "Bürgeramt Blaschkoallee",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "122291"
+  },
+  {
+    "location_name": "Bürgeramt Weißensee",
+    "authority_name": "Bezirksamt Pankow",
+    "authority_id": "12673",
+    "location_id": "122294"
+  },
+  {
+    "location_name": "Bürgeramt Zwickauer Damm",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "122296"
+  },
+  {
+    "location_name": "Bürgeramt Prenzlauer Berg",
+    "authority_name": "Bezirksamt Pankow",
+    "authority_id": "12673",
+    "location_id": "122297"
+  },
+  {
+    "location_name": "Bürgeramt Pankow",
+    "authority_name": "Bezirksamt Pankow",
+    "authority_id": "12673",
+    "location_id": "122301"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Reinickendorf",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "122304"
+  },
+  {
+    "location_name": "Bürgeramt Tegel",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "122309"
+  },
+  {
+    "location_name": "Bürgeramt Reinickendorf-Ost",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "122311"
+  },
+  {
+    "location_name": "Bürgeramt Heiligensee",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "122312"
+  },
+  {
+    "location_name": "Bürgeramt Märkisches Viertel",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "122314"
+  },
+  {
+    "location_name": "Bürgeramt Karow / Buch",
+    "authority_name": "Bezirksamt Pankow",
+    "authority_id": "12673",
+    "location_id": "150230"
+  },
+  {
+    "location_name": "Mobiles Bürgeramt Rudow",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "325657"
+  },
+  {
+    "location_name": "Mobiles Bürgeramt Alt-Buckow",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "327262"
+  },
+  {
+    "location_name": "Bürgeramt Sonnenallee - Vorzugstermine",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "327264"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Neukölln - Vorzugstermine",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "327266"
+  },
+  {
+    "location_name": "Bürgeramt Zwickauer Damm - Vorzugstermine",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "327268"
+  },
+  {
+    "location_name": "Bürgeramt Blaschkoallee - Vorzugstermine",
+    "authority_name": "Bezirksamt Neukölln",
+    "authority_id": "12672",
+    "location_id": "327270"
+  },
+  {
+    "location_name": "Bürgeramt Marzahner Promenade - Vorzugstermine",
+    "authority_name": "Bezirksamt Marzahn - Hellersdorf",
+    "authority_id": "12670",
+    "location_id": "327276"
+  },
+  {
+    "location_name": "Bürgeramt Biesdorf - Center - Vorzugstermine",
+    "authority_name": "Bezirksamt Marzahn - Hellersdorf",
+    "authority_id": "12670",
+    "location_id": "327278"
+  },
+  {
+    "location_name": "Bürgeramt Pankow - Vorzugstermine",
+    "authority_name": "Bezirksamt Pankow",
+    "authority_id": "12673",
+    "location_id": "327282"
+  },
+  {
+    "location_name": "Bürgeramt Weißensee - Vorzugstermine",
+    "authority_name": "Bezirksamt Pankow",
+    "authority_id": "12673",
+    "location_id": "327284"
+  },
+  {
+    "location_name": "Bürgeramt Prenzlauer Berg - Vorzugstermine",
+    "authority_name": "Bezirksamt Pankow",
+    "authority_id": "12673",
+    "location_id": "327286"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Tiergarten - Vorzugstermine",
+    "authority_name": "Bezirksamt Mitte",
+    "authority_id": "12671",
+    "location_id": "327290"
+  },
+  {
+    "location_name": "Bürgeramt Wedding - Vorzugstermine",
+    "authority_name": "Bezirksamt Mitte",
+    "authority_id": "12671",
+    "location_id": "327292"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Mitte - Vorzugstermine",
+    "authority_name": "Bezirksamt Mitte",
+    "authority_id": "12671",
+    "location_id": "327294"
+  },
+  {
+    "location_name": "Bürgeramt I in Köpenick - Vorzugstermine",
+    "authority_name": "Bezirksamt Treptow-Köpenick",
+    "authority_id": "12678",
+    "location_id": "327298"
+  },
+  {
+    "location_name": "Bürgeramt II in Schöneweide - Vorzugstermine",
+    "authority_name": "Bezirksamt Treptow-Köpenick",
+    "authority_id": "12678",
+    "location_id": "327300"
+  },
+  {
+    "location_name": "Bürgeramt Hohenzollerndamm - Vorzugstermine",
+    "authority_name": "Bezirksamt Charlottenburg - Wilmersdorf",
+    "authority_id": "12667",
+    "location_id": "327312"
+  },
+  {
+    "location_name": "Bürgeramt Heerstraße - Vorzugstermine",
+    "authority_name": "Bezirksamt Charlottenburg - Wilmersdorf",
+    "authority_id": "12667",
+    "location_id": "327316"
+  },
+  {
+    "location_name": "Bürgeramt Lichtenrade - Vorzugstermine",
+    "authority_name": "Bezirksamt Tempelhof-Schöneberg",
+    "authority_id": "12677",
+    "location_id": "327318"
+  },
+  {
+    "location_name": "Bürgeramt Schöneberg - Vorzugstermine",
+    "authority_name": "Bezirksamt Tempelhof-Schöneberg",
+    "authority_id": "12677",
+    "location_id": "327320"
+  },
+  {
+    "location_name": "Bürgeramt Tempelhof - Vorzugstermine",
+    "authority_name": "Bezirksamt Tempelhof-Schöneberg",
+    "authority_id": "12677",
+    "location_id": "327322"
+  },
+  {
+    "location_name": "Bürgeramt Lankwitz - Vorzugstermine",
+    "authority_name": "Bezirksamt Steglitz-Zehlendorf",
+    "authority_id": "12676",
+    "location_id": "327324"
+  },
+  {
+    "location_name": "Bürgeramt Steglitz - Vorzugstermine",
+    "authority_name": "Bezirksamt Steglitz-Zehlendorf",
+    "authority_id": "12676",
+    "location_id": "327326"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Reinickendorf - Vorzugstermine",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "327330"
+  },
+  {
+    "location_name": "Bürgeramt Tegel - Vorzugstermine",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "327332"
+  },
+  {
+    "location_name": "Bürgeramt Reinickendorf-Ost - Vorzugstermine",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "327334"
+  },
+  {
+    "location_name": "Bürgeramt 1 (Kreuzberg), Yorckstraße - Vorzugstermine",
+    "authority_name": "Bezirksamt Friedrichshain - Kreuzberg",
+    "authority_id": "12668",
+    "location_id": "327346"
+  },
+  {
+    "location_name": "Bürgeramt 3 (Friedrichshain), Frankfurter Allee - Vorzugstermine",
+    "authority_name": "Bezirksamt Friedrichshain - Kreuzberg",
+    "authority_id": "12668",
+    "location_id": "327348"
+  },
+  {
+    "location_name": "Bürgeramt Rathaus Spandau - Vorzugstermine",
+    "authority_name": "Bezirksamt Spandau",
+    "authority_id": "12675",
+    "location_id": "327352"
+  },
+  {
+    "location_name": "Bürgeramt 4 (Flüchtlingsbürgeramt Mitte)",
+    "authority_name": "Bezirksamt Mitte",
+    "authority_id": "12671",
+    "location_id": "327539"
+  },
+  {
+    "location_name": "Mobiles Bürgeramt FSE Pflegeeinrichtung Käthe Kern",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "327751"
+  },
+  {
+    "location_name": "Mobiles Bürgeramt Stadtteilzentrum Ikarus",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "327755"
+  },
+  {
+    "location_name": "Mobiles Bürgeramt Seniorenzentrum Am Obersee",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "327757"
+  },
+  {
+    "location_name": "Mobiles Bürgeramt Jobcenter Lichtenberg",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "327759"
+  },
+  {
+    "location_name": "Mobiles Bürgeramt Bibliothek Anton-Saefkow",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "327761"
+  },
+  {
+    "location_name": "Bürgeramt 1 (Neu- Hohenschönhausen) - Vorzugstermine",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "329742"
+  },
+  {
+    "location_name": "Bürgeramt 2 (Lichtenberg) - Vorzugstermine",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "329745"
+  },
+  {
+    "location_name": "Bürgeramt 3 (Friedrichsfelde) Tierparkcenter - Vorzugstermine",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "329748"
+  },
+  {
+    "location_name": "Bürgeramt 4 (Alt- Hohenschönhausen) - Vorzugstermine",
+    "authority_name": "Bezirksamt Lichtenberg",
+    "authority_id": "12669",
+    "location_id": "329751"
+  },
+  {
+    "location_name": "Bürgeramt Karow / Buch - Vorzugstermine",
+    "authority_name": "Bezirksamt Pankow",
+    "authority_id": "12673",
+    "location_id": "329760"
+  },
+  {
+    "location_name": "Bürgeramt Heiligensee - Vorzugstermine",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "329763"
+  },
+  {
+    "location_name": "Bürgeramt Zehlendorf - Vorzugstermine",
+    "authority_name": "Bezirksamt Steglitz-Zehlendorf",
+    "authority_id": "12676",
+    "location_id": "329766"
+  },
+  {
+    "location_name": "Bürgerbüro Wasserstadt - Vorzugstermine",
+    "authority_name": "Bezirksamt Spandau",
+    "authority_id": "12675",
+    "location_id": "329772"
+  },
+  {
+    "location_name": "Bürgeramt Märkisches Viertel - Vorzugstermine",
+    "authority_name": "Bezirksamt Reinickendorf",
+    "authority_id": "12674",
+    "location_id": "329775"
+  }
+]

@@ -17,49 +17,50 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.post('/api/user', (req, res) => {
+app.post('/api/user', async (req, res) => {
   if (validator.validate(req.body.email)) {
     console.log('valid email', req.body.email)
-    const { first_name, last_name, email, phone_number } = req.body
-    knex
-      .table('users')
-      .insert({ first_name, last_name, email, phone_number })
-      .then(() => sendEmail(req.body.email, first_name))
-      .catch(err => {
-        console.error(err)
-        res.status(500).send(err)
-      }).then(() => res.status(200).send({ status: 'OK' }))
+    const { first_name, last_name, email, phone_number, authority_id } = req.body
+    try {
+        const [id] =  await knex
+        .table('users')
+        .insert({ first_name, last_name, email, phone_number })
+        .returning('id')
+        .catch(err => {
+          console.error("error inserting user", err)
+          res.status(500).send(err)
+        })
+    if (authority_id) {
+        await knex.table('location_user_mapping').insert({
+            user_id: id,
+            authority_id
+        }).returning('user_id')
+    }
+      
+      res.send({id})
+  
+    } catch (e) {
+        res.status( 500)
+        res.send({error: "error"})
+    }
   } else {
     res.status(400).send({ err: 'INVALID_EMAIL' })
   }
 })
 
-app.post('/api/email', (req, res) => {
-  if (validator.validate(req.body.email)) {
-    console.log('valid email', req.body.email)
-    knex
-      .table('users')
-      .insert({ email: req.body.email })
-      .then(r => res.send(r))
-      .then(() => sendEmail(req.body.email))
-      .catch(err => {
-        console.error(err)
-        res.status(500).send(err)
-      })
-  } else {
-    res.status(400).send({ err: 'INVALID_EMAIL' })
-  }
-})
+app.get('/api/locations', async (req, res) => {
+  const locations = await knex
+    .table('locations')
+    .select('authority_name', 'authority_id')
+    .distinct('authority_id')
+    
+    res.send(locations.map((row) => {
+        return {
+            authority_name: row.authority_name.replace('Bezirksamt ', ''),
+            authority_id: row.authority_id
+        }
+    }))
 
-app.get('/api/test', (req, res) => {
-  knex
-    .table('users')
-    .select('*')
-    .then((r) => res.send(r))
-    .catch(err => {
-      console.error('test', err)
-      res.status(500).send({ err: 'SOMETHING_BROKE', stack: err })
-    })
 })
 
 const health = (req, res) => {
@@ -73,8 +74,9 @@ const health = (req, res) => {
 
 function sendEmail (email, firstName) {
   const data = {
-    from: 'Terminator Berlin <no-reply@not-a-valid-domain.com>',
+    from: 'Terminator Berlin <hello@terminator.berlin>',
     to: email,
+    replyTo: "joseph.finlayson@gmail.com",
     subject: 'Thanks for signing up to terminator.berlin',
     text: `
     Dear ${firstName || 'User'},

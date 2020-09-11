@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import delay from 'delay'
-import notify from './notify-users'
+
 export default async function bookApptAndScreenshot (page, user, firstApptLink) {
   console.log('going to', firstApptLink)
   try {
@@ -20,8 +20,6 @@ export default async function bookApptAndScreenshot (page, user, firstApptLink) 
     await delay(3000)
     return await page.screenshot({ fullPage: true })
   } catch (e) {
-    const att = await page.screenshot({ fullPage: true })
-    notify({ email: 'joseph.finlayson@gmail.com' }, att)
     console.log(e)
     console.error('Could not book appointment')
   }

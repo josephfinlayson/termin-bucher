@@ -13,6 +13,8 @@ export default async function getUsersRegisteredInLast7Days () {
         moment().format('YYYY-MM-DD HH:mm:ss')
       ])
       .andWhere({ appointment_found: false })
+      .joinRaw('join location_user_mapping on location_user_mapping.user_id = users.id')
+      .andWhereRaw('authority_id IS NOT NULL')
       .select('*')
       .limit(1)
   } catch (e) {

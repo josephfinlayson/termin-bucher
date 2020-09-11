@@ -34,10 +34,11 @@ export function getBookableAppointments ($) {
   return $(apptAgreement.appointmentTable).find(apptAgreement.bookableAppt)
 }
 
-export default async function availableAppts (page) {
+export default async function availableAppts (page, url) {
   let $
   try {
-    await page.goto(apptAgreement.url, { waitUntil: 'networkidle2' })
+    console.log("navigating to: ", url)
+    await page.goto(url, { waitUntil: 'networkidle2' })
     const html = await page.evaluate(() => document.body.innerHTML)
     
     $ = cheerio.load(html)

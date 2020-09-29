@@ -1,6 +1,8 @@
 import _ from 'lodash'
 import delay from 'delay'
 
+const success = "Ihr Termin ist eingetragen worden"
+
 export default async function bookApptAndScreenshot (page, user, firstApptLink) {
   console.log('going to', firstApptLink)
   try {
@@ -18,8 +20,19 @@ export default async function bookApptAndScreenshot (page, user, firstApptLink) 
     await page.click('#agbgelesen')
     await page.click('#register_submit')
     await delay(3000)
-    return await page.screenshot({ fullPage: true })
-  } catch (e) {
+    const content = await page.content()
+    
+    if (content.includes(success)) {
+        return await page.screenshot({ fullPage: true })
+    }
+    
+    else {
+        // new edge case
+        console.log(content)    
+        throw new Error("booking not successful")
+    }
+
+} catch (e) {
     console.log(e)
     console.error('Could not book appointment')
   }

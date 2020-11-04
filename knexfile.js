@@ -17,13 +17,13 @@ types.setTypeParser(20, function (val) {
 const conf =
 {
   client: 'pg',
-  version: '12',
+  version: '9.5',
   migrations: {
     tableName: 'knex_migrations',
     disableTransactions: true
   },
   connection: {
-    host: 'postgres.default.svc',
+    host: 'localhost',
     port: '25060',
     user: 'doadmin',
     password: process.env.postgres_password,
@@ -37,5 +37,5 @@ const conf =
 
 module.exports = {
   development: conf,
-  production: _.merge(_.cloneDeep(conf), { connection: { host: 'cockroach-cockroachdb.default.svc' } })
+  production: _.merge(_.cloneDeep(conf), { connection: { host: 'postgres.default.svc' } })
 }

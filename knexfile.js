@@ -17,10 +17,9 @@ types.setTypeParser(20, function (val) {
 const conf =
 {
   client: 'pg',
-  version: '9.5',
+  version: '12',
   migrations: {
     tableName: 'knex_migrations',
-    disableTransactions: true
   },
   connection: {
     host: 'localhost',

@@ -24,6 +24,7 @@ const conf =
   connection: {
     host: 'localhost',
     port: '25060',
+    debug: true,
     ssl: true,
     user: 'doadmin',
     password: process.env.postgres_password,

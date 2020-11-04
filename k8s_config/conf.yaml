@@ -26,6 +26,11 @@ spec:
                 secretKeyRef:
                   name: secrets
                   key: mailgun_api_key
+            - name: postgres_password
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: postgres_password
 
 ---
 apiVersion: networking.k8s.io/v1beta1

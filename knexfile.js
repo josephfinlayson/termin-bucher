@@ -23,9 +23,10 @@ const conf =
     disableTransactions: true
   },
   connection: {
-    host: '127.0.0.1',
-    port: '26257',
-    user: 'root',
+    host: 'postgres.svc.default',
+    port: '25060',
+    user: 'doadmin',
+    password: process.env.postgres_password,
     database: 'terminator',
     pool: {
       min: 1,

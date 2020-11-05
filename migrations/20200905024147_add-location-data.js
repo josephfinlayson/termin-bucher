@@ -1,7 +1,7 @@
 
 exports.up = function (knex) {
   return knex.schema.createTable('locations', function (table) {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()')).notNull()
+    table.uuid('id').primary().defaultTo(knex.raw('uuid_generate_v4()')).notNull()
     table.string('location_name').notNull()
     table.string('location_id').notNull()
     table.string('authority_id').notNull()

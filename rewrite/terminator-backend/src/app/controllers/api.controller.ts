@@ -1,9 +1,10 @@
 import { Context, controller, Get, HttpResponseOK } from '@foal/core';
-import { TimesController } from './api';
+import { LocationsController, TimesController } from './api';
 
 export class ApiController {
   subControllers = [
-    controller('/times', TimesController)
+    controller('/times', TimesController),
+    controller('/locations', LocationsController)
   ];
 
 

@@ -1,9 +1,9 @@
-import { Column, Entity, Index } from "typeorm";
+import { Column, Entity, Index, PrimaryColumn } from "typeorm";
 
 @Index("locations_pkey", ["id"], { unique: true })
 @Entity("locations", { schema: "public" })
 export class Locations {
-  @Column("uuid", {
+  @PrimaryColumn("uuid", {
     primary: true,
     name: "id",
     default: () => "uuid_generate_v4()",

@@ -1,5 +1,5 @@
-import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
-import { Users } from "./Users";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Users } from "./user.entity";
 
 @Entity("location_user_mapping", { schema: "public" })
 export class LocationUserMapping {
@@ -9,4 +9,7 @@ export class LocationUserMapping {
   @ManyToOne(() => Users, (users) => users.locationUserMappings)
   @JoinColumn([{ name: "user_id", referencedColumnName: "id" }])
   user: Users;
+
+  @PrimaryColumn()
+  id: string
 }

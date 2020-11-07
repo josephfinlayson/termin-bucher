@@ -1,11 +1,11 @@
-import { Column, Entity, Index, OneToMany } from "typeorm";
-import { AppointmentTimes } from "./AppointmentTimes";
-import { LocationUserMapping } from "./LocationUserMapping";
+import { Column, Entity, Index, OneToMany, PrimaryColumn } from "typeorm";
+import { AppointmentTimes } from "./appointmentTimes.entity";
+import { LocationUserMapping } from "./locationUserMapping.entity";
 
 @Index("users_pkey", ["id"], { unique: true })
 @Entity("users", { schema: "public" })
 export class Users {
-  @Column("uuid", {
+  @PrimaryColumn("uuid", {
     primary: true,
     name: "id",
     default: () => "uuid_generate_v4()",

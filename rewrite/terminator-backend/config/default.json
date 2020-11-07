@@ -1,17 +1,23 @@
 {
-  "port": 3001,
-  "settings": {
-    "csrf": false,
-    "debug": false,
-    "loggerFormat": "tiny",
-    "session": {
-      "cookie": {
-        "sameSite": "lax"
-      }
+    "port": 3001,
+    "settings": {
+        "csrf": false,
+        "debug": false,
+        "loggerFormat": "tiny",
+        "session": {
+            "cookie": {
+                "sameSite": "lax"
+            }
+        }
+    },
+    "database": {
+        "name": "default",
+        "type": "postgres",
+        "host": "hobby-paas-db-do-user-7897539-0.b.db.ondigitalocean.com",
+        "port": 25060,
+        "user": "doadmin",
+        "database": "terminator",
+        "schema": "public",
+        "synchronize": false
     }
-  },
-  "database": {
-    "database": "./db.sqlite3",
-    "synchronize": false
-  }
 }

@@ -2,5 +2,15 @@
   "settings": {
     "debug": true,
     "loggerFormat": "dev"
-  }
+  },
+  "database": {
+    "name": "default",
+    "type": "postgres",
+    "host": "hobby-paas-db-do-user-7897539-0.b.db.ondigitalocean.com",
+    "port": 25060,
+    "user": "doadmin",
+    "database": "terminator",
+    "schema": "public",
+    "synchronize": false
+}
 }

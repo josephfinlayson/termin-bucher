@@ -1,3 +1,5 @@
 {
-  
+  "database": {
+      "host": "postgres.svc.default"
+  }
 }

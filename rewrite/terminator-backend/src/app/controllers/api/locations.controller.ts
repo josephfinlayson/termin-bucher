@@ -4,7 +4,7 @@ import {getRepository} from "typeorm"
 export class LocationsController {
 
   @Get('/')
-  async foo(ctx: Context) {
+  async get(ctx: Context) {
     const rep = getRepository(Location)
     const locs = await rep.find()
     const locations = locs.map((row) => {
@@ -13,7 +13,6 @@ export class LocationsController {
             authority_id: row.authorityId
         }
     })
-    
 
     return new HttpResponseOK(locations);
   }

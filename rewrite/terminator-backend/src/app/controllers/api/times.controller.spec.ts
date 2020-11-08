@@ -6,8 +6,23 @@ import { Context, createController, getHttpMethod, getPath, isHttpResponseOK } f
 
 // App
 import { TimesController } from './times.controller';
+import { createConnection, Connection } from 'typeorm';
 
 describe('TimesController', () => {
+
+
+        //let controller: ApiController;
+    let connection: Connection;
+  // Create a connection to the database before running all the tests.
+  before(async () => {
+    // The connection uses the configuration defined in the file config/test.json.
+    // By default, the file has three connection options:
+    //  "database": "./test_db.sqlite3" -> Use a different database for running the tests.
+    // "synchronize": true ->  Auto create the database schema when the connection is established.
+    // "dropSchema": true -> Drop the schema when the connection is established (empty the database).
+    connection = await createConnection();
+  });
+  after(() => connection.close());
 
   let controller: TimesController;
 

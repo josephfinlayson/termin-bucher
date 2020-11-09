@@ -11,7 +11,6 @@
         }
     },
     "database": {
-        "name": "default",
         "type": "postgres",
         "host": "hobby-paas-db-do-user-7897539-0.b.db.ondigitalocean.com",
         "port": 25060,

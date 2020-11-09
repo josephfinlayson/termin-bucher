@@ -1,15 +1,12 @@
-import { Column, Entity, Index, OneToMany, PrimaryColumn } from "typeorm";
+import { Column, Entity, Index, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { AppointmentTimes } from "./appointmentTimes.entity";
 import { LocationUserMapping } from "./locationUserMapping.entity";
 
 @Index("users_pkey", ["id"], { unique: true })
-@Entity("users", { schema: "public" })
+@Entity("users")
 export class Users {
-  @PrimaryColumn("uuid", {
-    primary: true,
-    name: "id",
-    default: () => "uuid_generate_v4()",
-  })
+
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column("character varying", { name: "email", length: 255 })
@@ -44,4 +41,5 @@ export class Users {
     (locationUserMapping) => locationUserMapping.user
   )
   locationUserMappings: LocationUserMapping[];
+
 }

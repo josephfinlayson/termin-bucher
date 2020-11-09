@@ -1,13 +1,10 @@
-import { Column, Entity, Index, PrimaryColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Index("locations_pkey", ["id"], { unique: true })
-@Entity("locations", { schema: "public" })
+@Entity("locations")
 export class Locations {
-  @PrimaryColumn("uuid", {
-    primary: true,
-    name: "id",
-    default: () => "uuid_generate_v4()",
-  })
+  
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column("character varying", { name: "location_name", length: 255 })

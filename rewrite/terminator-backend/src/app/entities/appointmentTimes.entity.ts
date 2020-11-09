@@ -1,8 +1,8 @@
-import { Column, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Users } from "./user.entity";
 
 @Index("id_unique", ["id"], { unique: true })
-@Entity("appointment_times", { schema: "public" })
+@Entity("appointment_times")
 export class AppointmentTimes {
   @Column("time without time zone", { name: "time", nullable: true })
   time: string | null;
@@ -10,7 +10,7 @@ export class AppointmentTimes {
   @Column("character varying", { name: "day", nullable: true, length: 15 })
   day: string | null;
 
-  @PrimaryColumn("uuid", { name: "id", unique: true })
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @ManyToOne(() => Users, (users) => users.appointmentTimes)

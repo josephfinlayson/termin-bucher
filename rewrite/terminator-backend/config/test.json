@@ -1,6 +1,6 @@
 {
   "database": {
-    "database": "./test_db.sqlite3",
+    "database": "test",
     "dropSchema": true,
     "synchronize": true
   }

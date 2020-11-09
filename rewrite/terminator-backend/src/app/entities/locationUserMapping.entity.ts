@@ -1,7 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Users } from "./user.entity";
 
-@Entity("location_user_mapping", { schema: "public" })
+@Entity("location_user_mapping")
 export class LocationUserMapping {
   @Column("character varying", { name: "authority_id", length: 255 })
   authorityId: string;
@@ -10,6 +10,6 @@ export class LocationUserMapping {
   @JoinColumn([{ name: "user_id", referencedColumnName: "id" }])
   user: Users;
 
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn("uuid")
   id: string
 }

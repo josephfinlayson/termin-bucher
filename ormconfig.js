@@ -1,5 +1,6 @@
 const { Config } = require('@foal/core');
 
+
 module.exports = {
   type: "postgres",
   password: Config.get2('database.password'),

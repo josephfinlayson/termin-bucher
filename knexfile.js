@@ -1,19 +1,5 @@
-const Compiler = require('knex/lib/dialects/postgres/query/compiler')
-const types = require('pg').types
-const _ = require('lodash')
-Compiler.prototype.forUpdate = function forUpdate () {
-  console.warn('table lock is not supported by cockroachdb/postgres dialect')
-  return ''
-}
 
-/**
- * Required because postgres returns int as string and
- * knex checks for isLocked are evaluating to true all the time
- */
-types.setTypeParser(20, function (val) {
-  return parseInt(val)
-})
-
+import _ from 'lodash'
 const conf =
 {
   client: 'pg',
@@ -22,7 +8,7 @@ const conf =
     tableName: 'knex_migrations',
   },
   connection: {
-    host: 'localhost',
+    host: 'hobby-paas-db-do-user-7897539-0.b.db.ondigitalocean.com',
     port: '25060',
     debug: true,
     ssl: true,
@@ -36,6 +22,7 @@ const conf =
   }
 }
 
+console.log(process.env.postgres_password)
 module.exports = {
   development: conf,
   production: _.merge(_.cloneDeep(conf), { connection: { host: 'postgres.default.svc' } })

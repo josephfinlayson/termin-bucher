@@ -28,6 +28,7 @@ LABEL MAINTAINER="Joseph Finlayson <joseph.finlayson@gmail.com>"
 # when we change our application's nodejs dependencies:
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install
+
 RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
 # From here we load our application's code in, therefore the previous docker
@@ -37,7 +38,7 @@ ADD . /opt/app
 
 
 # Expose the node.js port to the Docker host.
-EXPOSE 3000
+EXPOSE 3001
 
 # Run everything after as non-privileged user.
 USER pptruser

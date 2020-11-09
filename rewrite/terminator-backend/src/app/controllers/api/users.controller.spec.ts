@@ -6,25 +6,29 @@ import { Context, createController, getHttpMethod, getPath, isHttpResponseOK } f
 
 // App
 import { UsersController } from './users.controller';
+import { createConnection, Connection } from 'typeorm';
 
 describe('UsersController', () => {
 
-  let controller: UsersController;
+    let controller: UsersController;
+    let connection: Connection
+    beforeEach(() => controller = createController(UsersController));
 
-  beforeEach(() => controller = createController(UsersController));
-
-  describe('has a "foo" method that', () => {
-
-    it('should handle requests at GET /.', () => {
-      strictEqual(getHttpMethod(UsersController, 'foo'), 'GET');
-      strictEqual(getPath(UsersController, 'foo'), '/');
+    before(async () => {
+        connection = await createConnection();
     });
 
-    it('should return an HttpResponseOK.', () => {
-      const ctx = new Context({});
-      ok(isHttpResponseOK(controller.foo(ctx)));
-    });
+    after(() => connection.close());
 
-  });
+    describe('has a "foo" method that', () => {
+
+
+        it('should return an HttpResponseOK.', async () => {
+            const ctx = new Context({ body: { "email": "Joseph.Finlayson@gmail.com", "phone_number": "017698455845", "first_name": "Joseph", "last_name": "Finlayson", "authority_id": "12671", "time": { "1": [0], "2": [0], "3": [0], "4": [0], "5": [0] } } });
+            const responce = await controller.foo(ctx)
+            ok(isHttpResponseOK(responce))
+        })
+
+    });
 
 });

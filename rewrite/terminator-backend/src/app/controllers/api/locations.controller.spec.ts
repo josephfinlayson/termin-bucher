@@ -9,7 +9,7 @@ import { LocationsController } from './locations.controller';
 import { createConnection, Connection } from 'typeorm';
 import { Location } from '../../entities';
 
-describe.only('LocationsController', () => {
+describe('LocationsController', () => {
 
     
     describe('has a "foo" method that', () => {

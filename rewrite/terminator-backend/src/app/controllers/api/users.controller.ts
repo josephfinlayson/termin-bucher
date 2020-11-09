@@ -1,8 +1,12 @@
-import { Context, ValidateBody, Get, Post, HttpResponseOK, HttpResponseInternalServerError } from '@foal/core';
+import { Context, ValidateBody, Get, Post,dependency, HttpResponseOK, HttpResponseInternalServerError, Dependency } from '@foal/core';
 import { getRepository } from 'typeorm';
 import { Users } from '../../entities/user.entity';
+import { AppointmentTimeMapper } from '../../services';
 
 export class UsersController {
+
+    @dependency
+    timeMapper: AppointmentTimeMapper
 
     @Post('/')
     @ValidateBody({
@@ -21,12 +25,14 @@ export class UsersController {
                 lastName: last_name,
                 email,
                 phoneNumber: phone_number,
-                locationUserMappings: [{ authorityId: authority_id }]
+                locationUserMappings: [{ authorityId: authority_id }],
+                appointmentTimes: this.timeMapper.mapRequestToDB(ctx.request.body.time)
             })
 
             return new HttpResponseOK(result)
 
         } catch (e) {
+            console.error(e)
             return new HttpResponseInternalServerError()
         }
     }

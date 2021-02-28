@@ -35,7 +35,7 @@ jobs:
       # Push the Docker image to Google Container Registry
       - name: Publish
         run: | 
-            docker push --push-all-tags registry.digitalocean.com/$registry/$app
+            docker push --all-tags registry.digitalocean.com/$registry/$app
 
       # Set up kustomize
       - name: Set up Kustomize
@@ -55,4 +55,3 @@ jobs:
       - name: Verify deployment
         run:  | 
           kubectl rollout status deployment/$app --namespace $namespace
-          kubectl get services -o wide

@@ -22,18 +22,19 @@ app.use(express.json())
 app.post(userController.route, userController.hander)
 app.get(timeController.route, timeController.handler)
 
-app.get('/api/locations', async (req, res) => {
-  const locations = await knex
-    .table('locations')
-    .select('authority_name', 'authority_id')
-    .distinct('authority_id')
+
+// Implement a simple Web Server
+// It should take any POST request to any URL
+// It should look for the HTML form parameter ‘text’
+// It should reverse the value of that parameter
+// If the user submits “Hello”, it should return “olleH”
+
+
+app.post('/*', async (req, res) => {
+    const message = req.body.text
+    const reversedMessage = message.split('').reverse().join('')
     
-    res.send(locations.map((row) => {
-        return {
-            authority_name: row.authority_name.replace('Bezirksamt ', ''),
-            authority_id: row.authority_id
-        }
-    }))
+    return new HttpResponseOK({message: reversedMessage});
 
 })
 

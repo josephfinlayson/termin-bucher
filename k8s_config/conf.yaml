@@ -13,7 +13,7 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             # This should be fixed by running migrations before we deploy the container
-            - "npm run db:migration:run && npm run start"
+            - "npm run start"
           ports:
             - containerPort: 3000
           env:

@@ -1,8 +1,7 @@
 resources:
   - conf.yaml
 
-namespace: 'terminator'
+namespace: 'legal-tooling'
 
 commonLabels:
-  app: terminator-api
-    
+  app: legal-tooling

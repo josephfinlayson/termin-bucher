@@ -66,7 +66,7 @@ spec:
   ports:
     - name: http
       port: 8005
-      targetPort: 3000
+      targetPort: 3001
   selector:
     app: terminator-api
   type: NodePort

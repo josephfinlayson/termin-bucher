@@ -10,6 +10,8 @@ import { createConnection } from 'typeorm';
 // App
 import { AppController } from './app/app.controller';
 
+import './flows/orchestrate'
+
 async function main() {
   await createConnection();
 
@@ -20,6 +22,7 @@ async function main() {
   httpServer.listen(port, () => {
     console.log(`Listening on port ${port}...`);
   });
+
 }
 
 main()

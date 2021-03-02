@@ -25,7 +25,7 @@ async function checkForAppts () {
   const appts = await getAppointments(page, locationsUrl)
 
   if (appts.length === 0) {
-    console.log("No appointments")
+    console.log('No appointments')
     browser.close()
     return
   }
@@ -49,6 +49,7 @@ if (process.env['ENV'] === 'production')
     checkForAppts().then().catch(console.error);
 
 (function loop () {
+    
   const rand = Math.round(Math.random() * (300000 - 15000) + 4500)
   console.log(
     'next check scheduled for',

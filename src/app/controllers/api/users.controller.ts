@@ -28,7 +28,7 @@ export class UsersController {
                 locationUserMappings: [{ authorityId: authority_id }],
                 appointmentTimes: this.timeMapper.mapRequestToDB(ctx.request.body.time)
             })
-
+            
             return new HttpResponseOK(result)
 
         } catch (e) {

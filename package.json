@@ -34,16 +34,13 @@
     "node": ">=8"
   },
   "dependencies": {
-    "@foal/core": "^1.0.0",
-    "@foal/cli": "^1.0.0",
-
-    "@foal/typeorm": "^1.0.0",
-    "source-map-support": "^0.5.1",
-    "sqlite3": "^4.0.0",
-    "typeorm": "0.2.24",
     "@babel/plugin-transform-react-jsx": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@foal/cli": "^1.0.0",
+    "@foal/core": "^1.0.0",
+    "@foal/typeorm": "^1.0.0",
+    "@types/dotenv": "^8.2.0",
     "async": "^3.2.0",
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
@@ -52,9 +49,9 @@
     "email-validator": "^1.2.3",
     "express": "^4.17.1",
     "knex": "^0.21.5",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mailgun-js": "^0.7.11",
-    "moment": "^2.27.0",
+    "moment": "^2.29.1",
     "moment-range": "^3.1.1",
     "node-fetch": "^1.5.3",
     "nodemon": "^1.19.4",
@@ -64,7 +61,10 @@
     "puppeteer": "^5.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-html-email": "^3.0.0"
+    "react-html-email": "^3.0.0",
+    "source-map-support": "^0.5.1",
+    "sqlite3": "^4.0.0",
+    "typeorm": "0.2.24"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.1",

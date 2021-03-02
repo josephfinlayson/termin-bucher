@@ -1,5 +1,5 @@
 
-import _ from 'lodash'
+import * as  _ from 'lodash'
 const conf =
 {
   client: 'pg',
@@ -22,8 +22,7 @@ const conf =
   }
 }
 
-console.log(process.env.postgres_password)
-module.exports = {
+export  const config =  {
   development: conf,
   production: _.merge(_.cloneDeep(conf), { connection: { host: 'postgres.default.svc' } })
 }

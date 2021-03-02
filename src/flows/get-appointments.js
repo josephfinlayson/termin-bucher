@@ -2,7 +2,7 @@ import apptAgreement from '../page-objects/appointment-agreement'
 import { getApptDetails } from '../formatter/get-appt-info'
 import _ from 'lodash'
 import cheerio from 'cheerio'
-import mom from 'moment'
+import * as mom from 'moment'
 import { extendMoment } from 'moment-range'
 
 const moment = extendMoment(mom)
@@ -37,7 +37,7 @@ export function getBookableAppointments ($) {
 export default async function availableAppts (page, url) {
   let $
   try {
-    console.log("navigating to: ", url)
+    console.log('navigating to: ', url)
     await page.goto(url, { waitUntil: 'networkidle2' })
     const html = await page.evaluate(() => document.body.innerHTML)
     

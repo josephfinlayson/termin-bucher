@@ -1,4 +1,4 @@
-import mom from 'moment'
+import * as mom from 'moment'
 import { extendMoment } from 'moment-range'
 import knex from '../data/index'
 

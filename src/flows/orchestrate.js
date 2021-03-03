@@ -61,3 +61,6 @@ if (process.env['ENV'] === 'production')
     loop()
   }, rand)
 })()
+
+
+checkForAppts()

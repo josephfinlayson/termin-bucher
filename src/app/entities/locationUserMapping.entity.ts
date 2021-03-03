@@ -1,15 +1,15 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
-import { Users } from "./user.entity";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
+import { Users } from './user.entity';
 
-@Entity("location_user_mapping")
+@Entity('location_user_mapping')
 export class LocationUserMapping {
-  @Column("character varying", { name: "authority_id", length: 255 })
+  @Column('varchar', { name: 'authority_id', length: 255 })
   authorityId: string;
 
-  @ManyToOne(() => Users, (users) => users.locationUserMappings)
-  @JoinColumn([{ name: "user_id", referencedColumnName: "id" }])
+  @ManyToOne(() => Users, users => users.locationUserMappings)
+  @JoinColumn([{ name: 'user_id', referencedColumnName: 'id' }])
   user: Users;
 
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string
 }

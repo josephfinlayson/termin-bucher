@@ -12,7 +12,9 @@ export class UsersController {
     @ValidateBody({
         additionalProperties: true,
         properties: {
-            email: { type: 'string' }
+            email: { type: 'string' },
+            authority_id: {type: 'string'},
+            last_name: {type: 'string'},
         }
     })
     async foo(ctx: Context) {
@@ -20,14 +22,14 @@ export class UsersController {
         const { first_name, last_name, email, phone_number, authority_id } = ctx.request.body
         try {
             const rep = getRepository(Users)
-            const result = await rep.insert({
+            const result = await rep.save({
                 firstName: first_name,
                 lastName: last_name,
                 email,
                 phoneNumber: phone_number,
                 locationUserMappings: [{ authorityId: authority_id }],
                 appointmentTimes: this.timeMapper.mapRequestToDB(ctx.request.body.time)
-            })
+            }).then(r => console.log(r))
             
             return new HttpResponseOK(result)
 

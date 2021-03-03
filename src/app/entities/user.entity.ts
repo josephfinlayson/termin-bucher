@@ -32,7 +32,7 @@ export class Users {
 
   @OneToMany(
     () => AppointmentTimes,
-    appointmentTimes => appointmentTimes.user, {cascade: true}
+    appointmentTimes => appointmentTimes.user, {}
   )
   appointmentTimes: AppointmentTimes[];
 

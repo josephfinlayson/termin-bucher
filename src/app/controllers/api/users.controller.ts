@@ -29,7 +29,7 @@ export class UsersController {
                 phoneNumber: phone_number,
                 locationUserMappings: [{ authorityId: authority_id }],
                 appointmentTimes: this.timeMapper.mapRequestToDB(ctx.request.body.time)
-            }).then(r => console.log(r))
+            })
             
             return new HttpResponseOK(result)
 

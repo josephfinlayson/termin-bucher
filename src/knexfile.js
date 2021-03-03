@@ -13,7 +13,7 @@ const conf =
     debug: true,
     ssl: true,
     user: 'doadmin',
-    password: process.env.postgres_password,
+    password: process.env.DATABASE_PASSWORD,
     database: 'terminator',
     pool: {
       min: 1,

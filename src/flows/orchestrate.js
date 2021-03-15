@@ -23,7 +23,7 @@ async function checkForAppts() {
     const page = await browser.newPage()
     const appts = await getAppointments(page, locationsUrl)
 
-    if (appts.length === 0) {
+    if (!appts || appts.length === 0) {
         console.log('No appointments')
         browser.close()
         return

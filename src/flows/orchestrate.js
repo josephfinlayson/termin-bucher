@@ -21,9 +21,16 @@ async function checkForAppts() {
 
     const browser = await puppeteer.launch({ headless: process.env.NODE_ENV === 'production', args: ['--no-sandbox', '--disable-setuid-sandbox', '--window-size=1920,1080'] })
     const page = await browser.newPage()
-    const appts = await getAppointments(page, locationsUrl)
 
-    if (!appts || appts.length === 0) {
+    let appts
+    try {
+        appts = await getAppointments(page, locationsUrl)
+    } catch (e) {
+        console.error('error fetching appointments', e)
+        browser.close()
+    }
+
+    if (appts && appts.length === 0) {
         console.log('No appointments')
         browser.close()
         return

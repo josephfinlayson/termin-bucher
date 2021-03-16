@@ -1,7 +1,7 @@
 import apptAgreement from '../page-objects/appointment-agreement'
 import { getApptDetails } from '../formatter/get-appt-info'
-import _ from 'lodash'
-import cheerio from 'cheerio'
+import * as _ from 'lodash'
+import * as cheerio from 'cheerio'
 import * as mom from 'moment'
 import { extendMoment } from 'moment-range'
 
@@ -43,8 +43,7 @@ export default async function availableAppts(page, url) {
 
         $ = cheerio.load(html)
     } catch (e) {
-        console.error('error loading html', JSON.stringify(e))
-        return
+        throw new Error(e)
     }
     const appts = getBookableAppointments($)
 

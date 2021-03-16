@@ -58,7 +58,7 @@
     "npm": "^5.10.0",
     "objection": "^2.2.3",
     "pg": "^7.18.2",
-    "puppeteer": "^5.2.1",
+    "puppeteer": "^5.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-html-email": "^3.0.0",

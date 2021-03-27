@@ -13,8 +13,6 @@ export class LocationsController {
     .select(['authority_name', 'authority_id'])
     .getRawMany()
     
-    console.log(locs)
-    
     const locations = locs.map(row => {
         return {
             authority_name: row.authority_name.replace('Bezirksamt ', ''),

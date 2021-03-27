@@ -1,4 +1,4 @@
-import knexConfigured from "../data/index";
+import knexConfigured from '../data/index';
 
 export default async function getLocationsForUsers(id){
     
@@ -8,7 +8,6 @@ export default async function getLocationsForUsers(id){
     where location_user_mapping.user_id='${id}'`
 
     const data = await knexConfigured.raw(q)
-    console.log(data.rows)
     if (data.rows.length === 0) {
         return
     }

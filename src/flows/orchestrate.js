@@ -28,6 +28,7 @@ async function checkForAppts() {
     } catch (e) {
         console.error('error fetching appointments', e)
         browser.close()
+        return
     }
 
     if (appts && appts.length === 0) {
@@ -42,6 +43,8 @@ async function checkForAppts() {
         const screenshot = await bookAppts(page, user, appts[index].link)
         if (screenshot) {
             usersWithScreenShots.push({ user, screenshot })
+        } else {
+            return
         }
     }
 

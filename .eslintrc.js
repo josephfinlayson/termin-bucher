@@ -5,7 +5,7 @@ module.exports = {
     'node': true
   },
   extends: [
-    'eslint:recommended',
+    'standard',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
@@ -32,9 +32,11 @@ module.exports = {
     'arrow-parens': ['error', 'as-needed'],
     'max-classes-per-file': 'off',
     'no-console': 'off',
+    'camelcase': 'off',
     'no-duplicate-imports': 'error',
     'no-empty': 'off',
     'no-shadow': 'off',
+    "@typescript-eslint/camelcase": "off",
     'comma-dangle': 'off',
     'sort-keys': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { 'args':  'none' }],

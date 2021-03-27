@@ -1,11 +1,10 @@
-import { Column, Entity, Index, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
-import { AppointmentTimes } from './appointmentTimes.entity';
-import { LocationUserMapping } from './locationUserMapping.entity';
+import { Column, Entity, Index, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm'
+import { AppointmentTimes } from './appointmentTimes.entity'
+import { LocationUserMapping } from './locationUserMapping.entity'
 
 @Index('users_pkey', ['id'], { unique: true })
 @Entity('users')
 export class Users {
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -37,9 +36,8 @@ export class Users {
   appointmentTimes: AppointmentTimes[];
 
   @OneToMany(
-    () => LocationUserMapping, 
-    locationUserMapping => locationUserMapping.user, {cascade: true}
+    () => LocationUserMapping,
+    locationUserMapping => locationUserMapping.user, { cascade: true }
   )
   locationUserMappings: LocationUserMapping[];
-
 }

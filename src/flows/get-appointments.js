@@ -13,44 +13,44 @@ const moment = extendMoment(mom)
  * @param userRegisterDate
  * @returns {*}
  */
-export function isApptAvailableInTheNext7Days(apptData, userRegisterDate) {
-    const appointmentAvaliableDateString = `${apptData.dayOfAppt} ${apptData.monthOfAppt}`
-    const userCreationDate = moment(userRegisterDate)
-    const sevenDaysFromNow = moment(userRegisterDate).add(7, 'days')
-    const range = moment.range(userCreationDate, sevenDaysFromNow)
-    const appointmentDate = moment(
-        appointmentAvaliableDateString,
-        'DD MMMM YYYY',
-        'de'
-    )
-    if (!appointmentDate.isValid()) {
-        console.error(appointmentAvaliableDateString)
-        throw new Error(`INVALID_DATE: ${appointmentAvaliableDateString}`)
-    }
-    return range.contains(appointmentDate)
+export function isApptAvailableInTheNext7Days (apptData, userRegisterDate) {
+  const appointmentAvaliableDateString = `${apptData.dayOfAppt} ${apptData.monthOfAppt}`
+  const userCreationDate = moment(userRegisterDate)
+  const sevenDaysFromNow = moment(userRegisterDate).add(7, 'days')
+  const range = moment.range(userCreationDate, sevenDaysFromNow)
+  const appointmentDate = moment(
+    appointmentAvaliableDateString,
+    'DD MMMM YYYY',
+    'de'
+  )
+  if (!appointmentDate.isValid()) {
+    console.error(appointmentAvaliableDateString)
+    throw new Error(`INVALID_DATE: ${appointmentAvaliableDateString}`)
+  }
+  return range.contains(appointmentDate)
 }
 
-export function getBookableAppointments($) {
-    return $(apptAgreement.appointmentTable).find(apptAgreement.bookableAppt)
+export function getBookableAppointments ($) {
+  return $(apptAgreement.appointmentTable).find(apptAgreement.bookableAppt)
 }
 
-export default async function availableAppts(page, url) {
-    let $
-    try {
-        console.log('navigating to: ', url)
-        await page.goto(url, { waitUntil: 'networkidle2' })
-        const html = await page.evaluate(() => document.body.innerHTML)
+export default async function availableAppts (page, url) {
+  let $
+  try {
+    console.log('navigating to: ', url)
+    await page.goto(url, { waitUntil: 'networkidle2' })
+    const html = await page.evaluate(() => document.body.innerHTML)
 
-        $ = cheerio.load(html)
-    } catch (e) {
-        throw new Error(e)
-    }
-    const appts = getBookableAppointments($)
+    $ = cheerio.load(html)
+  } catch (e) {
+    throw new Error(e)
+  }
+  const appts = getBookableAppointments($)
 
-    const apptLinks = appts
-        .map(_.partialRight(getApptDetails, $))
-        .toArray()
-        .filter(data => isApptAvailableInTheNext7Days(data))
+  const apptLinks = appts
+    .map(_.partialRight(getApptDetails, $))
+    .toArray()
+    .filter(data => isApptAvailableInTheNext7Days(data))
 
-    return apptLinks
+  return apptLinks
 }

@@ -1,6 +1,7 @@
 import * as mom from 'moment'
 import { extendMoment } from 'moment-range'
 import knex from '../data/index'
+import { RethrownError } from '../app/services/logger.service'
 
 const moment = extendMoment(mom)
 
@@ -18,6 +19,6 @@ export default async function getUsersRegisteredInLast7Days () {
       .select('users.id')
       .limit(1)
   } catch (e) {
-    console.error('cannot get users', e)
+    throw new RethrownError('cannot get users', e)
   }
 }

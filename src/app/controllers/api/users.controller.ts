@@ -2,6 +2,7 @@ import { Context, ValidateBody, Get, Post, dependency, HttpResponseOK, HttpRespo
 import { getRepository } from 'typeorm'
 import { Users } from '../../entities/user.entity'
 import { AppointmentTimeMapper } from '../../services'
+import { LoggerService } from '../../services/logger.service'
 
 export class UsersController {
     @dependency
@@ -16,8 +17,8 @@ export class UsersController {
         last_name: { type: 'string' },
       }
     })
-    async foo (ctx: Context) {
-      console.log('valid email', ctx.request.body.email)
+    async foo (ctx: Contex, logger: LoggerService) {
+      logger.info(`valid email ${ctx.request.body.email}`)
       const { first_name, last_name, email, phone_number, authority_id } = ctx.request.body
       try {
         const rep = getRepository(Users)

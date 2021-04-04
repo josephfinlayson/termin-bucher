@@ -8,7 +8,7 @@ export default async function getLocationsForUsers (id) {
 
   const data = await knexConfigured.raw(q)
   if (data.rows.length === 0) {
-    return
+    throw new Error('no location rows')
   }
   const locations = data.rows.map(row => row.location_id).join()
 

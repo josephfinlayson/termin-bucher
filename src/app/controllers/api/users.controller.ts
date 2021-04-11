@@ -17,7 +17,7 @@ export class UsersController {
         last_name: { type: 'string' },
       }
     })
-    async foo (ctx: Contex, logger: LoggerService) {
+    async foo (ctx: Context, logger: LoggerService) {
       logger.info(`valid email ${ctx.request.body.email}`)
       const { first_name, last_name, email, phone_number, authority_id } = ctx.request.body
       try {

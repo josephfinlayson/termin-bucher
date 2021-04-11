@@ -8,6 +8,9 @@ export class UsersController {
     @dependency
     timeMapper: AppointmentTimeMapper
 
+    @dependency
+    logger: LoggerService
+
     @Post('/')
     @ValidateBody({
       additionalProperties: true,
@@ -17,8 +20,8 @@ export class UsersController {
         last_name: { type: 'string' },
       }
     })
-    async foo (ctx: Context, logger: LoggerService) {
-      logger.info(`valid email ${ctx.request.body.email}`)
+    async foo (ctx: Context) {
+      this.logger.info(`valid email ${ctx.request.body.email}`)
       const { first_name, last_name, email, phone_number, authority_id } = ctx.request.body
       try {
         const rep = getRepository(Users)

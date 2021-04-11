@@ -12,12 +12,10 @@ import { LoggerService } from '../../services/logger.service'
 describe('UsersController', () => {
   let controller: UsersController
   let connection: Connection
-  let logger: LoggerService
   beforeEach(() => controller = createController(UsersController))
 
   before(async () => {
     connection = await createConnection()
-    logger = new LoggerService()
   })
 
   after(() => connection.close())
@@ -25,7 +23,7 @@ describe('UsersController', () => {
   describe('has a "foo" method that', () => {
     it('should return an HttpResponseOK.', async () => {
       const ctx = new Context({ body: { email: 'Joseph.Finlayson@gmail.com', phone_number: '017698455845', first_name: 'Joseph', last_name: 'Finlayson', authority_id: '12671', time: { 1: [0], 2: [0], 3: [0], 4: [0], 5: [0] } } })
-      const responce = await controller.foo(ctx, logger)
+      const responce = await controller.foo(ctx)
       ok(isHttpResponseOK(responce))
     })
   })

@@ -11,6 +11,7 @@ import { createConnection } from 'typeorm'
 import { AppController } from './app/app.controller'
 
 import './flows/orchestrate'
+import { loggerInstance } from './app/services/logger.service'
 
 async function main () {
   await createConnection()
@@ -20,7 +21,8 @@ async function main () {
   const httpServer = http.createServer(app)
   const port = Config.get2('port', 'number', 3001)
   httpServer.listen(port, () => {
-    console.log(`Listening on port ${port}...`)
+    loggerInstance.info(`Listening on port ${port}...`)
+    loggerInstance.error(new Error(`Listening on port ${port}...`))
   })
 }
 

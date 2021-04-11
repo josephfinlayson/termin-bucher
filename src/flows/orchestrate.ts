@@ -72,9 +72,9 @@ async function checkForAppts (): Promise<FinalStatus> {
 
 (function loop () {
   const rand = Math.round(Math.random() * (300000 - 15000) + 4500)
-  console.log(
-    'next check scheduled for',
-    Math.round(rand / 1000 / 60),
+  loggerInstance.info(
+    'next check scheduled for' +
+    Math.round(rand / 1000 / 60) +
     'minutes'
   )
   setTimeout(function () {

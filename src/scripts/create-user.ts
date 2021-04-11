@@ -5,6 +5,7 @@ import { createConnection, getConnection, getManager, /* getRepository */ } from
 
 // App
 import { User } from '../app/entities'
+import { loggerInstance } from '../app/services/logger.service';
 
 export const schema = {
   additionalProperties: false,
@@ -50,11 +51,9 @@ export async function main (/* args */) {
   // }
 
   try {
-    console.log(
-      await getManager().save(user)
-    )
+    await getManager().save(user)
   } catch (error) {
-    console.log(error.message)
+    loggerInstance.error(error)
   } finally {
     await getConnection().close()
   }

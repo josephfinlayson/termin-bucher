@@ -8,6 +8,7 @@ export default async function bookApptAndScreenshot (page, user, firstApptLink) 
   loggerInstance.info(`going to ${firstApptLink}`)
   let content
   try {
+    content = await page.content()
     await page.goto(firstApptLink, { waitUntil: 'domcontentloaded' })
     content = await page.content()
     await page.click('div.timetable > table > tbody > tr:nth-child(1) > td > a')
@@ -33,6 +34,7 @@ export default async function bookApptAndScreenshot (page, user, firstApptLink) 
       throw new Error('booking not successful')
     }
   } catch (e) {
+    loggerInstance.info(content)
     console.error('Could not book appointment', e)
   }
 }

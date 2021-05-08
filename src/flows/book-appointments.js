@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import delay from 'delay'
-import { loggerInstance } from '../app/services/logger.service'
+import { loggerInstance, RethrownError } from '../app/services/logger.service'
 
 const success = 'Ihr Termin ist eingetragen worden'
 
@@ -19,7 +19,7 @@ export default async function bookApptAndScreenshot (page, user, firstApptLink) 
     try {
       await page.type('#telephone', user.phone_number)
     } catch (e) {
-      console.error(e)
+      loggerInstance.warn('could not add telephone')
     }
 
     await page.click('#agbgelesen')
@@ -35,7 +35,7 @@ export default async function bookApptAndScreenshot (page, user, firstApptLink) 
       throw new Error('booking not successful')
     }
   } catch (e) {
-    loggerInstance.info(content)
-    console.error('Could not book appointment', e)
+    loggerInstance.info('failing_content', { content })
+    loggerInstance.error(new RethrownError('Could not book appointment', e))
   }
 }

@@ -2,7 +2,7 @@ import { Context, ValidateBody, Get, Post, dependency, HttpResponseOK, HttpRespo
 import { getRepository } from 'typeorm'
 import { Users } from '../../entities/user.entity'
 import { AppointmentTimeMapper } from '../../services'
-import { LoggerService } from '../../services/logger.service'
+import { LoggerService, loggerInstance } from '../../services/logger.service'
 
 export class UsersController {
     @dependency
@@ -36,7 +36,7 @@ export class UsersController {
 
         return new HttpResponseOK(result)
       } catch (e) {
-        console.error(e)
+        loggerInstance.error(e)
         return new HttpResponseInternalServerError()
       }
     }

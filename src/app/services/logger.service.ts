@@ -1,36 +1,38 @@
-import pino from 'pino'
+import * as winston from 'winston'
 
-const tracer = require('dd-trace').init({
-    logInjection: true
-});
+require('dd-trace').init({
+  logInjection: true
+})
 
 export class LoggerService {
-    private logger: any;
+    private logger: winston.Logger;
 
     constructor () {
-      this.logger = pino({
-        prettyPrint: process.env.NODE_ENV !== 'production',
-        formatters: {
-          level (level) {
-            return { level }
-          },
-        },
+      this.logger = winston.createLogger({
+        transports: [
+          new winston.transports.Console(),
+        ],
+        format: winston.format.combine(
+          winston.format.timestamp(),
+          winston.format.json(),
+          winston.format.metadata(),
+          winston.format.errors({ stack: true })
+        ),
       })
     }
 
-    info (msg: string) {
-      this.logger.info(msg)
+    info (msg: string, metadata?: Record<string, any>) {
+      this.logger.info(msg, metadata)
     }
 
-    warn (msg: string) {
-      this.logger.warn(msg)
+    warn (msg: string, metadata?: Record<string, any>) {
+      this.logger.warn(msg, metadata)
     }
 
-    error (msg: Error) {
-      this.logger.error(msg)
+    error (err: Error, metadata?: Record<string, any>) {
+      this.logger.error(err)
     }
 }
-
 // Standard error extender from @mhio/exception
 
 class ExtendedError extends Error {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import * as puppeteer from 'puppeteer'
 import getUsers from './get-users'
 import getAppointments from './get-appointments'

@@ -4,6 +4,7 @@ import * as _ from 'lodash'
 import * as cheerio from 'cheerio'
 import * as mom from 'moment'
 import { extendMoment } from 'moment-range'
+import { loggerInstance } from '../app/services/logger.service'
 
 const moment = extendMoment(mom)
 
@@ -24,7 +25,7 @@ export function isApptAvailableInTheNext7Days (apptData, userRegisterDate) {
     'de'
   )
   if (!appointmentDate.isValid()) {
-    console.error(appointmentAvaliableDateString)
+    loggerInstance.warn(`invalid date string ${appointmentAvaliableDateString}`)
     throw new Error(`INVALID_DATE: ${appointmentAvaliableDateString}`)
   }
   return range.contains(appointmentDate)
@@ -37,7 +38,7 @@ export function getBookableAppointments ($) {
 export default async function availableAppts (page, url) {
   let $
   try {
-    console.log('navigating to: ', url)
+    loggerInstance.info('navigating to: ', url)
     await page.goto(url, { waitUntil: 'networkidle2' })
     const html = await page.evaluate(() => document.body.innerHTML)
 

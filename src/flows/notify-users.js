@@ -18,9 +18,9 @@ export default function sendEmail (user, attachment) {
 
   mailgun.messages().send(data, function (error, body) {
     if (error) {
-      console.error(error)
+      loggerInstance.error(error)
     } else {
-      console.debug(
+      loggerInstance.info(
                 `Mail successfully send to user ${user.email
                 } for appointments ${JSON.stringify(user.appointments)}`
       )

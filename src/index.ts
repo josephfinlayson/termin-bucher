@@ -27,4 +27,4 @@ async function main () {
 }
 
 main()
-  .catch(err => { console.error(err); process.exit(1) })
+  .catch(err => { loggerInstance.error(err); process.exit(1) })

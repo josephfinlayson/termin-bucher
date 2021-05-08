@@ -13,6 +13,7 @@ export default async function bookApptAndScreenshot (page, user, firstApptLink) 
     content = await page.content()
     await page.click('div.timetable > table > tbody > tr:nth-child(1) > td > a')
     await delay(3000)
+    content = page.content()
     await page.type('#familyName', `${user.first_name} ${user.last_name}`)
     await page.type('#email', user.email)
     try {

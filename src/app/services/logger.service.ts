@@ -1,5 +1,9 @@
 import pino from 'pino'
 
+const tracer = require('dd-trace').init({
+    logInjection: true
+});
+
 export class LoggerService {
     private logger: any;
 

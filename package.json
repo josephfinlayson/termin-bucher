@@ -68,7 +68,7 @@
         "react-html-email": "^3.0.0",
         "source-map-support": "^0.5.1",
         "sqlite3": "^4.0.0",
-        "typeorm": "0.2.24",
+        "typeorm": "0.2.25",
         "winston": "^3.3.3"
     },
     "devDependencies": {

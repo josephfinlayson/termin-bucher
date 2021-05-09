@@ -6,7 +6,7 @@ import bookAppts from './book-appointments'
 import notify from './notify-users'
 import markUserAsFound from './mark-user-as-found'
 import getLocationUrl from './get-locations-for-authority-id'
-import { loggerInstance, RethrownError } from '../app/services/logger.service'
+import { loggerInstance, RethrownError, tracer } from '../app/services/logger.service'
 
 enum FinalStatus {
     SUCCESS='SUCESS',
@@ -71,6 +71,8 @@ async function checkForAppts (): Promise<FinalStatus> {
   return FinalStatus.SUCCESS
 }
 
+const checkWithTrace = tracer.wrap('appts.cron', checkForAppts);
+
 (function loop () {
   const rand = Math.round(Math.random() * (300000 - 15000) + 4500)
   loggerInstance.info(
@@ -79,9 +81,9 @@ async function checkForAppts (): Promise<FinalStatus> {
     'minutes'
   )
   setTimeout(function () {
-    checkForAppts().then(r => loggerInstance.info(r)).catch(e => loggerInstance.error(e))
+    checkWithTrace().then(r => loggerInstance.info(r)).catch(e => loggerInstance.error(e))
     loop()
   }, rand)
 })()
 
-checkForAppts().then(r => loggerInstance.info(r)).catch(e => loggerInstance.error(e))
+checkWithTrace().then(r => loggerInstance.info(r)).catch(e => loggerInstance.error(e))

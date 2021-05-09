@@ -1,6 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  tags.datadoghq.com/env: production
+  tags.datadoghq.com/version: "1.0.0"
   name: terminator-api
 spec:
   replicas: 1
@@ -17,6 +19,22 @@ spec:
           ports:
             - containerPort: 3000
           env:
+            - name: DD_AGENT_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: DD_ENV
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['tags.datadoghq.com/env']
+            - name: DD_VERSION
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['tags.datadoghq.com/version']
+            - name: DD_PROFILING_ENABLED
+              value: "true"
+            - name: DD_LOGS_INJECTION
+              value: "true"
             - name: "ENV"
               value: "PROD"
             - name: "NODE_ENV"

@@ -1,6 +1,7 @@
 import * as winston from 'winston'
+import { Tracer } from 'dd-trace'
 
-require('dd-trace').init({
+export const tracer: Tracer = require('dd-trace').init({
   logInjection: true
 })
 

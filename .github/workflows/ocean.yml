@@ -48,7 +48,7 @@ jobs:
       - name: Deploy to DigitalOcean Kubernetes
         run: |
           cd k8s_config
-          kubectl apply -k .
+          kubectl apply -k . --validate=false
           kubectl set image deployment/$app $app=registry.digitalocean.com/$registry/$app:$GITHUB_SHA --record 
 
       - name: Verify deployment

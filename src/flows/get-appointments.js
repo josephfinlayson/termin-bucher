@@ -38,7 +38,7 @@ export function getBookableAppointments ($) {
 export default async function availableAppts (page, url) {
   let $
   try {
-    loggerInstance.info('navigating to: ', url)
+    loggerInstance.info(`navigating to: ' ${url}`)
     await page.goto(url, { waitUntil: 'networkidle2' })
     const html = await page.evaluate(() => document.body.innerHTML)
 

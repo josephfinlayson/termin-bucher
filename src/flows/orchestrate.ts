@@ -71,19 +71,22 @@ async function checkForAppts (): Promise<FinalStatus> {
   return FinalStatus.SUCCESS
 }
 
-const checkWithTrace = tracer.wrap('appts.cron', checkForAppts);
+function checkCatchErrors () {
+  checkForAppts().then(r => loggerInstance.info(r)).catch(e => loggerInstance.error(new RethrownError('process failed', e)))
+}
+const checkWithTrace = tracer.wrap('appts.cron', checkCatchErrors);
 
 (function loop () {
-  const rand = Math.round(Math.random() * (300000 - 15000) + 4500)
+  const rand = Math.round(Math.random() * (300000 - 15000) + 8500)
   loggerInstance.info(
     'next check scheduled for' +
     Math.round(rand / 1000 / 60) +
     'minutes'
   )
   setTimeout(function () {
-    checkWithTrace().then(r => loggerInstance.info(r)).catch(e => loggerInstance.error(e))
+    checkWithTrace()
     loop()
   }, rand)
 })()
 
-checkWithTrace().then(r => loggerInstance.info(r)).catch(e => loggerInstance.error(e))
+checkWithTrace()

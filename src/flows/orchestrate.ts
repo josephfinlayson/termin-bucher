@@ -9,8 +9,8 @@ import getLocationUrl from './get-locations-for-authority-id'
 import { loggerInstance, RethrownError, tracer } from '../app/services/logger.service'
 
 enum FinalStatus {
-    SUCCESS='SUCESS',
-    FAILURE='SUCESSS'
+    SUCCESS='SUCCESS',
+    FAILURE='FAILURE'
 }
 
 async function checkForAppts (): Promise<FinalStatus> {
@@ -77,7 +77,7 @@ function checkCatchErrors () {
 const checkWithTrace = tracer.wrap('appts.cron', checkCatchErrors);
 
 (function loop () {
-  const rand = Math.round(Math.random() * (300000 - 15000) + 8500)
+  const rand = Math.round(Math.random() * (300000) + 8500)
   loggerInstance.info(
     'next check scheduled for' +
     Math.round(rand / 1000 / 60) +

@@ -35,6 +35,11 @@ export function getBookableAppointments ($) {
   return $(apptAgreement.appointmentTable).find(apptAgreement.bookableAppt)
 }
 
+export function getAppointmentLinks (appts, $) {
+  return appts.map(_.partialRight(getApptDetails, $))
+    .toArray()
+    .filter(data => isApptAvailableInTheNext7Days(data))
+}
 export default async function availableAppts (page, url) {
   let $
   try {
@@ -48,10 +53,7 @@ export default async function availableAppts (page, url) {
   }
   const appts = getBookableAppointments($)
 
-  const apptLinks = appts
-    .map(_.partialRight(getApptDetails, $))
-    .toArray()
-    .filter(data => isApptAvailableInTheNext7Days(data))
+  const apptLinks = getAppointmentLinks(appts, $)
 
   return apptLinks
 }

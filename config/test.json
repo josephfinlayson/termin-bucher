@@ -3,5 +3,6 @@
     "database": "test",
     "dropSchema": true,
     "synchronize": true
-  }
+  },
+  "test": true
 }

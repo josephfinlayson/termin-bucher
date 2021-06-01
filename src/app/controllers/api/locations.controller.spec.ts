@@ -9,16 +9,21 @@ import { LocationsController } from './locations.controller'
 import { createConnection, Connection } from 'typeorm'
 import { Location } from '../../entities'
 
-describe('LocationsController', () => {
+describe.skip('LocationsController', () => {
   describe('has a "foo" method that', () => {
     let controller: LocationsController
     let connection: Connection
 
-    before(async () => {
+    before(async d => {
       connection = await createConnection()
+      console.log('conn', connection)
+      d()
     })
 
-    after(() => connection.close())
+    after(async d => {
+      await connection.close()
+      d()
+    })
 
     beforeEach(() => controller = createController(LocationsController))
 

@@ -58,7 +58,7 @@ async function checkForAppts (): Promise<FinalStatus> {
       // @ts-ignore
       usersWithScreenShots.push({ user, screenshot })
     } else {
-      loggerInstance.info(`no screenshot found for user: ${user}`)
+      loggerInstance.info(`no screenshot found for user: ${JSON.stringify(user)}`)
     }
   }
 

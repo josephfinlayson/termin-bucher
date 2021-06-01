@@ -8,11 +8,8 @@ export class ApiController {
       controller('/user', UsersController)
     ];
 
-    @Post('/*')
+    @Get('/*')
     index (ctx: Context) {
-      const message = ctx.request.body.text
-      const reversedMessage = message.split('').reverse().join('')
-
-      return new HttpResponseOK({ message: reversedMessage })
+      return new HttpResponseOK()
     }
 }

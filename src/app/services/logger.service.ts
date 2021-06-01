@@ -1,9 +1,14 @@
 import * as winston from 'winston'
 import { Tracer } from 'dd-trace'
-
-export const tracer: Tracer = require('dd-trace').init({
-  logInjection: true
-})
+import { Config } from '@foal/core'
+export let tracer = {
+  wrap: (_string, f) => f
+} as unknown as Tracer
+if (!Config.get2('test') && !Config.get2('dev')) {
+  tracer = require('dd-trace').init({
+    logInjection: true
+  })
+}
 
 export class LoggerService {
     private logger: winston.Logger;
